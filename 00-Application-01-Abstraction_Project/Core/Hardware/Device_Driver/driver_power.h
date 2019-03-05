@@ -9,8 +9,8 @@
 #define CORE_HARDWARE_DEVICE_DRIVER_DRIVER_POWER_H_
 
 /*< include >*******************************************************************************************/
+#include <IFileDriver.h>
 #include <types.h>
-#include <IDriver.h>
 
 /*< defines >*******************************************************************************************/
 
@@ -27,7 +27,7 @@ int32_t power_read (const void *descriptor, void *buffer_read, uint32_t size);
 int8_t  power_ioctl(const void *descriptor, uint8_t command, void *args);
 int8_t  power_close(const void *descriptor);
 
-const Driver power_driver = {
+const FileDriver power_driver = {
 		.init  = power_init,
 		.open  = power_open,
 		.write = power_write,

@@ -8,7 +8,7 @@
 /*< include >*******************************************************************************************/
 #include <types.h>
 #include <debugger.h>
-#include <IDriver.h>
+#include <IFileDriver.h>
 
 /*< defines >*******************************************************************************************/
 typedef void (*AdcIoctl)(void *parameter);

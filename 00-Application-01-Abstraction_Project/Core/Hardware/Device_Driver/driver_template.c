@@ -7,8 +7,8 @@
 
 /*< include >*******************************************************************************************/
 #include <types.h>
-#include <IDriver.h>
 #include <debugger.h>
+#include <IFileDriver.h>
 
 /*< defines >*******************************************************************************************/
 typedef void (*TEMPLATEIoctl)(void *parameter);

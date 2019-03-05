@@ -13,14 +13,14 @@
  * all device_driver must be created following the same signature
  */
 
+#include <IFileDriver.h>
 #include <types.h>
-#include <IDriver.h>
 
 typedef struct fileoperation{
 	const char *device_name;	/*!< Name of device */
 	bool isOpen;				/*!< Device state  */
 	const void *descriptor;		/*!< Device state  */
-	const Driver *driver;
+	const FileDriver *driver;
 }fileoperation;
 
 

@@ -9,8 +9,8 @@
 #define CORE_HARDWARE_DEVICE_DRIVER_DRIVER_SERIAL_H_
 
 /*< include >*******************************************************************************************/
+#include <IFileDriver.h>
 #include <types.h>
-#include <IDriver.h>
 
 /*< defines >*******************************************************************************************/
 
@@ -27,7 +27,7 @@ int32_t serial_read (const void *descriptor, void *buffer_read, uint32_t size);
 int8_t  serial_ioctl(const void *descriptor, uint8_t command, void *args);
 int8_t  serial_close(const void *descriptor);
 
-const Driver serial_driver = {
+const FileDriver serial_driver = {
 		.init  = serial_init,
 		.open  = serial_open,
 		.write = serial_write,

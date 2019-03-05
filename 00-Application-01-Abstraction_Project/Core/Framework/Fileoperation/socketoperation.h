@@ -1,0 +1,13 @@
+/*
+ * socketoperation.h
+ *
+ *  Created on: 5 de mar de 2019
+ *      Author: solid
+ */
+
+#ifndef CORE_FRAMEWORK_FILEOPERATION_SOCKETOPERATION_H_
+#define CORE_FRAMEWORK_FILEOPERATION_SOCKETOPERATION_H_
+
+
+
+#endif /* CORE_FRAMEWORK_FILEOPERATION_SOCKETOPERATION_H_ */

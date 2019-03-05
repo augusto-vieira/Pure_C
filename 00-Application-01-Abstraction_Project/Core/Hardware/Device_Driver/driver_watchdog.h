@@ -10,8 +10,8 @@
 
 
 /*< include >*******************************************************************************************/
+#include <IFileDriver.h>
 #include <types.h>
-#include <IDriver.h>
 
 /*< defines >*******************************************************************************************/
 
@@ -28,7 +28,7 @@ int32_t watchdog_read (const void *descriptor, void *buffer_read, uint32_t size)
 int8_t  watchdog_ioctl(const void *descriptor, uint8_t command, void *args);
 int8_t  watchdog_close(const void *descriptor);
 
-const Driver watchdog_driver = {
+const FileDriver watchdog_driver = {
 		.init  = watchdog_init,
 		.open  = watchdog_open,
 		.write = watchdog_write,

@@ -9,8 +9,8 @@
 #define CORE_HARDWARE_DEVICE_DRIVER_DRIVER_TEMPLATE_H_
 
 /*< include >*******************************************************************************************/
+#include <IFileDriver.h>
 #include <types.h>
-#include <IDriver.h>
 
 /*< defines >*******************************************************************************************/
 

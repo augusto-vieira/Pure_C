@@ -9,8 +9,8 @@
 #define CORE_HARDWARE_DEVICE_DRIVER_DRIVER_I2C_H_
 
 /*< include >*******************************************************************************************/
+#include <IFileDriver.h>
 #include <types.h>
-#include <IDriver.h>
 
 /*< defines >*******************************************************************************************/
 
@@ -27,7 +27,7 @@ int32_t i2c_read (const void *descriptor, void *buffer_read, uint32_t size);
 int8_t  i2c_ioctl(const void *descriptor, uint8_t command, void *args);
 int8_t  i2c_close(const void *descriptor);
 
-const Driver i2c_driver = {
+const FileDriver i2c_driver = {
 		.init  = i2c_init,
 		.open  = i2c_open,
 		.write = i2c_write,

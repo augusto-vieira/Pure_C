@@ -9,8 +9,8 @@
 #define CORE_HARDWARE_DEVICE_DRIVER_DRIVER_GPIO_H_
 
 /*< include >*******************************************************************************************/
+#include <IFileDriver.h>
 #include <types.h>
-#include <IDriver.h>
 
 /*< defines >*******************************************************************************************/
 
@@ -27,7 +27,7 @@ int32_t gpio_read (const void *descriptor, void *buffer_read, uint32_t size);
 int8_t  gpio_ioctl(const void *descriptor, uint8_t command, void *args);
 int8_t  gpio_close(const void *descriptor);
 
-const Driver gpio_driver = {
+const FileDriver gpio_driver = {
 		.init  = gpio_init,
 		.open  = gpio_open,
 		.write = gpio_write,

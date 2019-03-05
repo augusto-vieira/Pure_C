@@ -9,8 +9,8 @@
 #define CORE_HARDWARE_DEVICE_DRIVER_DRIVER_TIMER_H_
 
 /*< include >*******************************************************************************************/
+#include <IFileDriver.h>
 #include <types.h>
-#include <IDriver.h>
 
 /*< defines >*******************************************************************************************/
 
@@ -27,7 +27,7 @@ int32_t timer_read (const void *descriptor, void *buffer_read, uint32_t size);
 int8_t  timer_ioctl(const void *descriptor, uint8_t command, void *args);
 int8_t  timer_close(const void *descriptor);
 
-const Driver timer_driver = {
+const FileDriver timer_driver = {
 		.init  = timer_init,
 		.open  = timer_open,
 		.write = timer_write,
