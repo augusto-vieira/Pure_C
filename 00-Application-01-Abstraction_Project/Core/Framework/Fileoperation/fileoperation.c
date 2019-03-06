@@ -39,7 +39,7 @@ int8_t  device_open (const int8_t *name)
 	return -1;
 }
 
-int32_t device_write(uint8_t device_handle, const void *buffer_write, uint32_t size)
+int32_t device_write(int8_t device_handle, const void *buffer_write, uint32_t size)
 {
 	int32_t write_count = 0;
 	if(device_handle >= 0)
@@ -49,7 +49,7 @@ int32_t device_write(uint8_t device_handle, const void *buffer_write, uint32_t s
 	return write_count;
 }
 
-int32_t device_read (uint8_t device_handle, void *buffer_read, uint32_t size)
+int32_t device_read (int8_t device_handle, void *buffer_read, uint32_t size)
 {
 	int32_t read_count = 0;
 	if(device_handle >= 0)
@@ -59,7 +59,7 @@ int32_t device_read (uint8_t device_handle, void *buffer_read, uint32_t size)
 	return read_count;
 }
 
-int8_t  device_ioctl(uint8_t device_handle, uint8_t command, void *args)
+int8_t  device_ioctl(int8_t device_handle, uint8_t command, void *args)
 {
 	if(device_handle >= 0)
 	{
@@ -69,7 +69,7 @@ int8_t  device_ioctl(uint8_t device_handle, uint8_t command, void *args)
 	return -1;
 }
 
-int8_t  device_close(uint8_t device_handle)
+int8_t  device_close(int8_t device_handle)
 {
 	if(device_handle >= 0)
 	{

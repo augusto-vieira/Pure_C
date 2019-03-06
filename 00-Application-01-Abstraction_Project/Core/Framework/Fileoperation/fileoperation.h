@@ -40,7 +40,7 @@ int8_t  device_open (const int8_t *name);
  * @param size Size of buffer_write
  * @return Amount of Bytes written
  */
-int32_t device_write(uint8_t device_handle, const void *buffer_write, uint32_t size);
+int32_t device_write(int8_t device_handle, const void *buffer_write, uint32_t size);
 
 /**
  * @brief This function allows to read data from a device
@@ -51,7 +51,7 @@ int32_t device_write(uint8_t device_handle, const void *buffer_write, uint32_t s
  * @return Amount Bytes read
  */
 
-int32_t device_read (uint8_t device_handle, void *buffer_read, uint32_t size);
+int32_t device_read (int8_t device_handle, void *buffer_read, uint32_t size);
 /**
  * @brief This function allows to configure a device with options located at Device_Option folder
  *
@@ -60,13 +60,13 @@ int32_t device_read (uint8_t device_handle, void *buffer_read, uint32_t size);
  * @param args		can be any data, for more informations look at device option on Device_Option folder
  * @return 0 - Success , -1 - Error
  */
-int8_t  device_ioctl(uint8_t device_handle, uint8_t command, void *args);
+int8_t  device_ioctl(int8_t device_handle, uint8_t command, void *args);
 
 /**
  * @brief This function allows to uninitialized the device
  * @param device_handle
  * @return 0 - Success , -1 - Error
  */
-int8_t  device_close(uint8_t device_handle);
+int8_t  device_close(int8_t device_handle);
 
 #endif /* CORE_FRAMEWORK_FILEOPERATION_FILEOPERATION_H_ */
