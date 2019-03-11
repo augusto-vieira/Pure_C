@@ -8,6 +8,7 @@
 
 /* include *******************************************************************************************/
 #include "fileoperation.h"
+#include <socketoperation.h>
 #include <stdlib.h>
 
 #include <driver_adc.h>
