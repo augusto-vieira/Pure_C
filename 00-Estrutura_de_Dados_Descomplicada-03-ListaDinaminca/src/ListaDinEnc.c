@@ -6,6 +6,8 @@
  */
 
 #include "ListaDinEnc.h"
+#include <string.h>
+#include <stdio.h>
 
 struct elemento{
 	struct aluno dados;
@@ -23,8 +25,9 @@ Lista *cria_lista()
 	return li;
 }
 
-void libera_lista(Lista *li)
+int libera_lista(Lista *li)
 {
+	int ret = EXIT_FAILURE;
 	if(li != NULL)
 	{
 		Elem *no;
@@ -35,7 +38,9 @@ void libera_lista(Lista *li)
 			free(no);
 		}
 		free(li);
+		ret = EXIT_SUCCESS;
 	}
+	return ret;
 }
 
 int tamanho_lista(Lista *li)
@@ -129,8 +134,8 @@ int insere_lista_ordenada(Lista *li, struct aluno al)
 
 		if(atual == *li)	//inicio da lista
 		{
-			no->dados = (*li);
-			*li = no;
+			no->prox = (*li);
+			*li = atual;
 		}
 		else
 		{
@@ -139,4 +144,151 @@ int insere_lista_ordenada(Lista *li, struct aluno al)
 		}
 		return 1;
 	}
+}
+
+int remove_lista_inicio(Lista *li)
+{
+	if(li == NULL)
+		return 0;
+	if((*li) == NULL)
+		return 0;
+
+	Elem *no = *li;
+	*li = no->prox;
+	free(no);
+	return 1;
+}
+
+int remove_lista_final(Lista *li)
+{
+	if(li == NULL)
+		return 0;
+	if((*li) == NULL)
+		return 0;
+
+	Elem *ant, *no = *li;
+	while(no->prox != NULL)
+	{
+		ant = no;
+		no = no->prox;
+	}
+
+	if(no == (*li))		//inicio da lista
+	{
+		*li = no->prox;
+	}
+	else
+	{
+		ant->prox = no->prox;
+	}
+	free(no);
+	return 1;
+}
+
+int remove_lista(Lista *li, int mat)
+{
+	if(li == NULL)
+		return 0;
+	Elem *ant, *no = *li;
+
+	while( no != NULL && no->dados.matricula != mat)
+	{
+		ant = no;
+		no = no->prox;
+	}
+
+	if(no == NULL)	//não encontrado
+		return 0;
+
+	if(no == *li)	//remover o primeiro
+		*li = no->prox;
+	else
+		ant->prox = no->prox;
+	free(no);
+	return 1;
+}
+
+int consulta_lista_pos(Lista *li, int pos, struct aluno *al)
+{
+	if(li == NULL || pos <= 0)
+		return 0;
+	Elem *no = *li;
+	int i = 1;
+	while(no != NULL && i < pos)
+	{
+		no = no->prox;
+		i++;
+	}
+
+	if(no == NULL)
+		return 0;
+	else
+	{
+		*al = no->dados;
+		return 1;
+	}
+}
+
+int consulta_lista_matricula(Lista *li, int matricula, struct aluno *al)
+{
+	if(li == NULL)
+		return 0;
+
+	Elem *no = (*li);
+
+	while(no != NULL && no->dados.matricula != matricula)
+	{
+		no = no->prox;
+	}
+
+	if(no == NULL)
+		return 0;
+	else
+	{
+		*al = no->dados;
+		return 1;
+	}
+
+}
+
+int lista_foi_criada(Lista *li)
+{
+	return ((li) != NULL);
+}
+
+int printLista(Lista *li)
+{
+	int ret = EXIT_FAILURE;
+	if(li == NULL)
+		return;
+	if((*li) == NULL)
+		return;
+
+	Elem *no = (*li);
+	while(no != NULL)
+	{
+		printf("Nome: %s\n", no->dados.nome);
+		printf("Nome: %d\n", no->dados.matricula);
+		printf("Nome: %.2f\n", no->dados.n[0]);
+		printf("Nome: %.2f\n", no->dados.n[1]);
+		printf("Nome: %.2f\n", no->dados.n[2]);
+		no = no->prox;
+		ret = EXIT_SUCCESS;
+	}
+
+	return ret;
+}
+
+struct aluno cria_aluno(const char *nome, const int matricula, float notas[3])
+{
+	struct aluno al;
+
+	memset(&al, 0, sizeof(al));
+	size_t nome_tam = strlen(nome);
+
+	strncpy(al.nome, nome, nome_tam);
+	al.matricula = matricula;
+	memcpy(&al.n, notas, sizeof(float) * 3);
+
+	return al;
 }
