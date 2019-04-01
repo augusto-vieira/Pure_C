@@ -1,6 +1,5 @@
 /* Enunciado
- *
- *
+ * Faça um programa que leia um número inteiro e o imprima. *
  */
 
 
@@ -11,6 +10,6 @@ int main(void) {
 	int val;
 	scanf("%d", &val);
 
-	printf("");
+	printf("\n");
 	return EXIT_SUCCESS;
 }
