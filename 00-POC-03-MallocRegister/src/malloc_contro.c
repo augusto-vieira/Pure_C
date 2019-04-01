@@ -159,6 +159,7 @@ static char *getStateMessage(MALLOC_STATE state)
 			return "Allocated";
 			break;
 		default:
+			return NULL;
 			break;
 	}
 }
