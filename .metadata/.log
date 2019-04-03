@@ -8247,3 +8247,18 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY org.eclipse.cdt.core 1 0 2019-04-03 06:20:23.799
 !MESSAGE Indexed '00-Linux-ALP_CH03-07-SIGCHILD' (1 sources, 53 headers) in 0,134 sec: 1.045 declarations; 1.959 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-04-03 06:31:04.273
+!MESSAGE Indexed '00-Linux-ALP_CH04-01-CreateThread' (1 sources, 0 headers) in 0,007 sec: 2 declarations; 1 references; 2 unresolved inclusions; 0 syntax errors; 1 unresolved names (25%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-04-03 06:33:47.399
+!MESSAGE Indexed '00-Linux-ALP_CH04-02-Create2Threads' (1 sources, 0 headers) in 0,007 sec: 2 declarations; 1 references; 2 unresolved inclusions; 0 syntax errors; 1 unresolved names (25%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-04-03 07:45:54.894
+!MESSAGE Indexed '00-Linux-ALP_CH04-03-ThreadReturn ' (1 sources, 0 headers) in 0,032 sec: 2 declarations; 1 references; 2 unresolved inclusions; 0 syntax errors; 1 unresolved names (25%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-04-03 08:01:25.173
+!MESSAGE Indexed '00-Linux-ALP_CH04-04-ThreadDetach' (1 sources, 0 headers) in 0,034 sec: 2 declarations; 1 references; 2 unresolved inclusions; 0 syntax errors; 1 unresolved names (25%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-04-03 08:09:06.292
+!MESSAGE Indexed '00-Linux-ALP_CH04-05-CriticalSection' (1 sources, 0 headers) in 0,012 sec: 2 declarations; 1 references; 2 unresolved inclusions; 0 syntax errors; 1 unresolved names (25%)
