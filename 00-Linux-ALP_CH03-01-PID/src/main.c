@@ -10,9 +10,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
 #include <unistd.h>
 
 int main(void) {
+	printf("The process ID is %d\n", (int)getpid());
+	printf("The parent process ID is %d\n", (int)getppid());
 	return EXIT_SUCCESS;
 }

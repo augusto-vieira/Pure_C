@@ -10,9 +10,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <unistd.h>
 
 int main(void) {
-	return EXIT_SUCCESS;
+	int return_value;
+	return_value = system("ls -l /");
+	return return_value;
 }

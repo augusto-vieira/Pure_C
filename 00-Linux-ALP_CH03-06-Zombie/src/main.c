@@ -14,5 +14,15 @@
 #include <unistd.h>
 
 int main(void) {
+	pid_t child_pid;
+
+	child_pid = fork();
+	if(child_pid > 0)
+	{
+		sleep(60);
+	}
+	else{
+		exit(0);
+	}
 	return EXIT_SUCCESS;
 }
