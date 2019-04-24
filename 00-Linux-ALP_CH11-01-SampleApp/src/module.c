@@ -27,4 +27,27 @@ struct server_module *module_open(const char *module_name)
 
 	/* Attempt to open MODULE_PATH as a shared library. */
 	handle = dlopen(module_path, RTLD_NOW);
+	free(module_path);
+	if(handle == NULL)
+		return NULL;
+
+	module_generate = (void (*)(int)) dlsym(handle, "module_generate");
+
+	if(module_generate == NULL){
+		dlclose(handle);
+		return NULL;
+	}
+
+	module = (struct server_module *) xmalloc(sizeof(struct server_module));
+	module->handle = handle;
+	module->name = xstrdup(module_name);
+	module->generate_function = module_generate;
+	return module;
+}
+
+void module_close (struct server_module *module)
+{
+	dlclose(module->handle);
+	free((char *)module->name);
+	free(module);
 }
