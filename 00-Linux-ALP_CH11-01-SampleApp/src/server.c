@@ -53,3 +53,100 @@ static char *bad_method_response_template = "HTTP/1.0 501 Method Not Implemented
 											" </body>\n"
 											"</html>\n";
 
+static void clean_up_child_process(int signal_number)
+{
+	int status;
+	wait(&status);
+}
+
+static void handle_get(int connection_fd, const char *page)
+{
+	struct server_module *module = NULL;
+	if(*page == '/' && strchr (page + 1, '/') == NULL)
+	{
+		char module_file_name[64];
+		snprintf(module_file_name, sizeof(module_file_name), "%s.so", page + 1);
+		module = module_open(module_file_name);
+	}
+
+	if(module == NULL)
+	{
+		char response[1024];
+		snprintf(response, sizeof(response), not_found_response_template, page);
+		write(connection_fd, response, strlen(response));
+	}
+	else
+	{
+		write(connection_fd, ok_response, strlen(ok_response));
+		(*module->generate_function)(connection_fd);
+		module_close(module);
+	}
+}
+
+static void handle_connection(int connection_fd)
+{
+	char buffer[256];
+	ssize_t bytes_read;
+
+	bytes_read = read(connection_fd, buffer, sizeof(buffer) - 1);
+	if(bytes_read > 0)
+	{
+		char method[sizeof(buffer)];
+		char url[sizeof(buffer)];
+		char protocol[sizeof(buffer)];
+
+		buffer[bytes_read] = '\0';
+		sscanf(buffer, "%s %s %s", method, url, protocol);
+
+		while(strstr(buffer, "\r\n\r\n") == NULL)
+			bytes_read = read(connection_fd, buffer, sizeof(buffer));
+
+		if(bytes_read == -1)
+		{
+			close(connection_fd);
+			return;
+		}
+
+		if(strcmp(protocol, "HTTP/1.0") && strcmp(protocol, "HTTP/1.1"))
+		{
+			write(connection_fd, bad_request_response, sizeof(bad_request_response));
+		}
+		else if(strcmp(method, "GET"))
+		{
+			char response[1024];
+
+			snprintf(response, sizeof(response), bad_method_response_template, method);
+			write(connection_fd, response, strlen(response));
+		}
+		else
+		{
+			handle_get(connection_fd, url);
+		}
+	}
+	else if(bytes_read == 0)
+	{
+
+	}
+	else
+	{
+		system_error("read");
+	}
+}
+
+void server_run(struct in_addr local_address, uint16_t port)
+{
+	struct sockaddr_in socket_address;
+	int rval;
+	struct sigaction sigchld_action;
+	int server_socket;
+
+	memset(&sigchld_action, 0, sizeof(sigchld_action));
+	sigchld_action.sa_handler = &clean_up_child_process;
+	sigaction(SIGCHLD, &sigchld_action, NULL);
+
+	server_socket = socket(PF_INET, SOCK_STREAM, 0);
+	if(server_socket == -1)
+	{
+		system_error("Socket");
+	}
+}
