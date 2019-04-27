@@ -149,4 +149,79 @@ void server_run(struct in_addr local_address, uint16_t port)
 	{
 		system_error("Socket");
 	}
+
+	memset(&socket_address, &socket_address, sizeof(socket_address));
+	socket_address.sin_family = AF_INET;
+	socket_address.sin_port = port;
+	socket_address.sin_addr = local_address;
+
+	rval = bind(server_socket, &socket_address, sizeof(socket_address));
+	if(rval != 0)
+		system_error("bind");
+
+	rval = listen(server_socket, 10);
+	if(rval != 0)
+		system_error("listen");
+
+	if(verbose)
+	{
+		socklen_t address_length;
+
+		address_length = sizeof(socket_address);
+		rval = getsockname(socket_address, &socket_address, &address_length);
+		assert(rval == 0);
+
+		printf("server listening on %s:%d\n", inet_ntoa(socket_address.sin_addr), (int) ntohs(socket_address.sin_port));
+	}
+
+	while(1)
+	{
+		struct sockaddr_in remote_address;
+		socklen_t address_length;
+		int connection;
+		pid_t child_pid;
+
+		address_length = sizeof(remote_address);
+		connection = accept(server_socket, &remote_address, &address_length);
+		if(connection == -1)
+		{
+			if(errno == EINTR)
+				continue;
+			else
+				system_error("accept");
+		}
+
+		if(verbose)
+		{
+			socklen_t address_length;
+
+			address_length = sizeof(socket_address);
+			rval = getpeername(connection, &socket_address, &address_length);
+			assert(rval == 0);
+			printf("connection accepted from %s\n", inet_ntoa(socket_address.sin_addr));
+		}
+
+		child_pid = fork();
+		if(child_pid == 0)
+		{
+			close(STDIN_FILENO);
+			close(STDOUT_FILENO);
+
+			close(socket_address);
+
+			handle_connection(connection);
+
+			close(connection);
+			exit(0);
+		}
+		else if(child_pid > 0)
+		{
+			close(connection);
+		}
+
+		else{
+			system_error("fork");
+		}
+
+	}
 }
