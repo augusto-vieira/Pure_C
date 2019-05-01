@@ -8,12 +8,23 @@
 #ifndef SCHEDULER_H_
 #define SCHEDULER_H_
 
+/* this define runs on microseconds */
+#define BASE_TIME_SCHEDULER			1000		//configures to 1ms interval
+
+/* Define amount of tasks on the system */
+#define MAX_TASKS 10
+
 typedef void (*Task)(void);
 
-void register_task(Task task, int timeout);
-void remove_task(Task task);
+typedef struct Tasks_t{
+	Task callback;
+	unsigned long int timeout;
+}Tasks_t;
+
+void register_task(Tasks_t *task);
+void remove_task(Tasks_t *task);
 
 
-void scheduler_run();
+void scheduler_run(void);
 
 #endif /* SCHEDULER_H_ */

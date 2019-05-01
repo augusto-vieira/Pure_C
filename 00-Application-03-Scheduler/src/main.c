@@ -24,8 +24,18 @@ void bye(void)
 
 int main(void) {
 
-	register_task(hello_world, 0);
-	register_task(bye, 0);
+	Tasks_t task1 = {
+			.callback = hello_world,
+			.timeout = 1
+	};
+
+	Tasks_t task2 = {
+			.callback = bye,
+			.timeout = 10
+	};
+
+	register_task(&task1);
+	register_task(&task2);
 
 	scheduler_run();
 
