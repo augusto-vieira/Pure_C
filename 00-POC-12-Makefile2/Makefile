@@ -8,8 +8,6 @@ OBJ=teste.o main.o
 
 all: $(TARGET)
 
-@echo "Vou começar a compilação"
-
 #linka os objetos para gerar o executavel
 teste: teste.o main.o
 	$(CC) -o $@ $^
