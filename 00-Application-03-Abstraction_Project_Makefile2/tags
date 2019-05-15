@@ -1,0 +1,410 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADC_Options	Core/Framework/Device_Option/ADC_Options.h	/^ }ADC_Options;$/;"	t	typeref:enum:ADC_Options
+ADC_Options	Core/Framework/Device_Option/ADC_Options.h	/^typedef enum ADC_Options{$/;"	g
+ADC_Status	Core/Framework/Device_Option/ADC_Options.h	/^	ADC_Status,$/;"	e	enum:ADC_Options
+AdcIoctl	Core/Hardware/Device_Driver/driver_adc.c	/^typedef void (*AdcIoctl)(void *parameter);$/;"	t	file:
+Adc_ctx	Core/Hardware/Device_Driver/driver_adc.c	/^}Adc_ctx;$/;"	t	typeref:struct:adc_ctx	file:
+AllDeviceCalls	Samples/all_devices_calls.c	/^void AllDeviceCalls(void)$/;"	f
+BLUETOOTH_BLE	Core/Framework/Fileoperation/socketoperation.h	/^	BLUETOOTH_BLE,$/;"	e	enum:Domain
+BLUETOOTH_CLASSIC	Core/Framework/Fileoperation/socketoperation.h	/^	BLUETOOTH_CLASSIC,$/;"	e	enum:Domain
+CLOSED	Core/Framework/Fileoperation/fileoperation.c	11;"	d	file:
+COMMType	Core/Framework/Fileoperation/socketoperation.h	/^typedef enum COMMType{$/;"	g
+COMMType	Core/Framework/Fileoperation/socketoperation.h	/^}COMMType;$/;"	t	typeref:enum:COMMType
+CORE_COMMON_CORE_ERRORS_H_	Core/Common/core_errors.h	9;"	d
+CORE_COMMON_DEBUGGER_H_	Core/Common/debugger.h	9;"	d
+CORE_COMMON_DEVICE_STATUS_H_	Core/Common/device_status.h	9;"	d
+CORE_COMMON_TYPES_H_	Core/Common/types.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_ADC_OPTIONS_H_	Core/Framework/Device_Option/ADC_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_DMA_OPTIONS_H_	Core/Framework/Device_Option/DMA_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_EEPROM_OPTIONS_H_	Core/Framework/Device_Option/EEPROM_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_FLASH_OPTIONS_H_	Core/Framework/Device_Option/FLASH_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_GPIO_OPTIONS_H_	Core/Framework/Device_Option/GPIO_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_I2C_OPTIONS_H_	Core/Framework/Device_Option/I2C_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_LCD16_OPTIONS_H_	Core/Framework/Device_Option/LCD16_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_POWER_OPTIONS_H_	Core/Framework/Device_Option/POWER_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_SERIAL_OPTIONS_H_	Core/Framework/Device_Option/SERIAL_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_SPI_OPTIONS_H_	Core/Framework/Device_Option/SPI_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_SYSTEM_OPTIONS_H_	Core/Framework/Device_Option/SYSTEM_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_TIMER_OPTIONS_H_	Core/Framework/Device_Option/TIMER_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_USB_OPTIONS_H_	Core/Framework/Device_Option/USB_Options.h	9;"	d
+CORE_FRAMEWORK_DEVICE_OPTION_WATCHDOG_OPTIONS_H_	Core/Framework/Device_Option/WATCHDOG_Options.h	9;"	d
+CORE_FRAMEWORK_FILEOPERATION_FILEOPERATION_H_	Core/Framework/Fileoperation/fileoperation.h	9;"	d
+CORE_FRAMEWORK_FILEOPERATION_SOCKETOPERATION_H_	Core/Framework/Fileoperation/socketoperation.h	9;"	d
+CORE_FRAMEWORK_IDRIVER_IFILEDRIVER_H_	Core/Framework/IDriver/IFileDriver.h	9;"	d
+CORE_FRAMEWORK_IDRIVER_ISOCKETDRIVER_H_	Core/Framework/IDriver/ISocketDriver.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_ADC_H_	Core/Hardware/Device_Driver/driver_adc.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_DMA_H_	Core/Hardware/Device_Driver/driver_dma.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_EEPROM_H_	Core/Hardware/Device_Driver/driver_eeprom.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_FLASH_H_	Core/Hardware/Device_Driver/driver_flash.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_GPIO_H_	Core/Hardware/Device_Driver/driver_gpio.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_I2C_H_	Core/Hardware/Device_Driver/driver_i2c.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_POWER_H_	Core/Hardware/Device_Driver/driver_power.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_PWM_H_	Core/Hardware/Device_Driver/driver_pwm.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_SERIAL_H_	Core/Hardware/Device_Driver/driver_serial.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_SPI_H_	Core/Hardware/Device_Driver/driver_spi.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_SYSTEM_H_	Core/Hardware/Device_Driver/driver_system.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_TEMPLATE_H_	Core/Hardware/Device_Driver/driver_template.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_TIMER_H_	Core/Hardware/Device_Driver/driver_timer.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_USB_H_	Core/Hardware/Device_Driver/driver_usb.h	9;"	d
+CORE_HARDWARE_DEVICE_DRIVER_DRIVER_WATCHDOG_H_	Core/Hardware/Device_Driver/driver_watchdog.h	9;"	d
+CORE_HARDWARE_HW_DESCRIPTOR_SERIAL_DESCRIPTOR_H_	Core/Framework/HW_Descriptor/Serial_Descriptor.h	9;"	d
+DEBUG_LOG	Core/Common/debugger.h	15;"	d
+DEBUG_LOG	Core/Common/debugger.h	17;"	d
+DMAIoctl	Core/Hardware/Device_Driver/driver_dma.c	/^typedef void (*DMAIoctl)(void *parameter);$/;"	t	file:
+DMA_Options	Core/Framework/Device_Option/DMA_Options.h	/^ }DMA_Options;$/;"	t	typeref:enum:DMA_Options
+DMA_Options	Core/Framework/Device_Option/DMA_Options.h	/^typedef enum DMA_Options{$/;"	g
+DMA_Status	Core/Framework/Device_Option/DMA_Options.h	/^	DMA_Status,$/;"	e	enum:DMA_Options
+DMA_ctx	Core/Hardware/Device_Driver/driver_dma.c	/^}DMA_ctx;$/;"	t	typeref:struct:dma_ctx	file:
+Domain	Core/Framework/Fileoperation/socketoperation.h	/^typedef enum Domain{$/;"	g
+Domain	Core/Framework/Fileoperation/socketoperation.h	/^}Domain;$/;"	t	typeref:enum:Domain
+EEPROMIoctl	Core/Hardware/Device_Driver/driver_eeprom.c	/^typedef void (*EEPROMIoctl)(void *parameter);$/;"	t	file:
+EEPROM_Get_Size	Core/Framework/Device_Option/EEPROM_Options.h	/^	EEPROM_Get_Size,$/;"	e	enum:EEPROM_Options
+EEPROM_Options	Core/Framework/Device_Option/EEPROM_Options.h	/^ }EEPROM_Options;$/;"	t	typeref:enum:EEPROM_Options
+EEPROM_Options	Core/Framework/Device_Option/EEPROM_Options.h	/^typedef enum EEPROM_Options{$/;"	g
+EEPROM_Set_Address	Core/Framework/Device_Option/EEPROM_Options.h	/^	EEPROM_Set_Address,$/;"	e	enum:EEPROM_Options
+EEPROM_Status	Core/Framework/Device_Option/EEPROM_Options.h	/^	EEPROM_Status,$/;"	e	enum:EEPROM_Options
+EEPROM_ctx	Core/Hardware/Device_Driver/driver_eeprom.c	/^}EEPROM_ctx;$/;"	t	typeref:struct:eeprom_ctx	file:
+ERROR_NOT_IMPLEMENTED	Core/Common/core_errors.h	11;"	d
+ERROR_RET_OK	Core/Common/core_errors.h	12;"	d
+FLASHIoctl	Core/Hardware/Device_Driver/driver_flash.c	/^typedef void (*FLASHIoctl)(void *parameter);$/;"	t	file:
+FLASH_Erase	Core/Framework/Device_Option/FLASH_Options.h	/^	FLASH_Erase,$/;"	e	enum:FLASH_Options
+FLASH_Options	Core/Framework/Device_Option/FLASH_Options.h	/^ }FLASH_Options;$/;"	t	typeref:enum:FLASH_Options
+FLASH_Options	Core/Framework/Device_Option/FLASH_Options.h	/^typedef enum FLASH_Options{$/;"	g
+FLASH_Register_Handler	Core/Framework/Device_Option/FLASH_Options.h	/^	FLASH_Register_Handler,$/;"	e	enum:FLASH_Options
+FLASH_Set_Address	Core/Framework/Device_Option/FLASH_Options.h	/^	FLASH_Set_Address,$/;"	e	enum:FLASH_Options
+FLASH_Status	Core/Framework/Device_Option/FLASH_Options.h	/^	FLASH_Status,$/;"	e	enum:FLASH_Options
+FLASH_Unregister_Handler	Core/Framework/Device_Option/FLASH_Options.h	/^	FLASH_Unregister_Handler,$/;"	e	enum:FLASH_Options
+FLASH_ctx	Core/Hardware/Device_Driver/driver_flash.c	/^}FLASH_ctx;$/;"	t	typeref:struct:flash_ctx	file:
+FileDriver	Core/Framework/IDriver/IFileDriver.h	/^typedef struct FileDriver{$/;"	s
+FileDriver	Core/Framework/IDriver/IFileDriver.h	/^}FileDriver;$/;"	t	typeref:struct:FileDriver
+GPIOIoctl	Core/Hardware/Device_Driver/driver_gpio.c	/^typedef void (*GPIOIoctl)(void *parameter);$/;"	t	file:
+GPIO_Options	Core/Framework/Device_Option/GPIO_Options.h	/^ }GPIO_Options;$/;"	t	typeref:enum:GPIO_Options
+GPIO_Options	Core/Framework/Device_Option/GPIO_Options.h	/^typedef enum GPIO_Options{$/;"	g
+GPIO_Status	Core/Framework/Device_Option/GPIO_Options.h	/^	GPIO_Status,$/;"	e	enum:GPIO_Options
+GPIO_Write_Pin	Core/Framework/Device_Option/GPIO_Options.h	/^	GPIO_Write_Pin,$/;"	e	enum:GPIO_Options
+GPIO_ctx	Core/Hardware/Device_Driver/driver_gpio.c	/^}GPIO_ctx;$/;"	t	typeref:struct:gpio_ctx	file:
+I2CIoctl	Core/Hardware/Device_Driver/driver_i2c.c	/^typedef void (*I2CIoctl)(void *parameter);$/;"	t	file:
+I2C_Options	Core/Framework/Device_Option/I2C_Options.h	/^ }I2C_Options;$/;"	t	typeref:enum:I2C_Options
+I2C_Options	Core/Framework/Device_Option/I2C_Options.h	/^typedef enum I2C_Options{$/;"	g
+I2C_Status	Core/Framework/Device_Option/I2C_Options.h	/^	I2C_Status,$/;"	e	enum:I2C_Options
+I2C_ctx	Core/Hardware/Device_Driver/driver_i2c.c	/^}I2C_ctx;$/;"	t	typeref:struct:i2c_ctx	file:
+ISocketDriver	Core/Framework/IDriver/ISocketDriver.h	/^typedef struct ISocketDriver{$/;"	s
+ISocketDriver	Core/Framework/IDriver/ISocketDriver.h	/^}ISocketDriver;$/;"	t	typeref:struct:ISocketDriver
+LCD16_Clear	Core/Framework/Device_Option/LCD16_Options.h	/^	LCD16_Clear,$/;"	e	enum:LCD16_Options
+LCD16_Cursor_OFF	Core/Framework/Device_Option/LCD16_Options.h	/^	LCD16_Cursor_OFF,$/;"	e	enum:LCD16_Options
+LCD16_Cursor_ON	Core/Framework/Device_Option/LCD16_Options.h	/^	LCD16_Cursor_ON,$/;"	e	enum:LCD16_Options
+LCD16_Display_OFF	Core/Framework/Device_Option/LCD16_Options.h	/^	LCD16_Display_OFF$/;"	e	enum:LCD16_Options
+LCD16_Options	Core/Framework/Device_Option/LCD16_Options.h	/^typedef enum LCD16_Options{$/;"	g
+LCD16_Options	Core/Framework/Device_Option/LCD16_Options.h	/^}LCD16_Options;$/;"	t	typeref:enum:LCD16_Options
+LCD16_Shift_Left	Core/Framework/Device_Option/LCD16_Options.h	/^	LCD16_Shift_Left,$/;"	e	enum:LCD16_Options
+LCD16_Shift_Right	Core/Framework/Device_Option/LCD16_Options.h	/^	LCD16_Shift_Right,$/;"	e	enum:LCD16_Options
+OPENED	Core/Framework/Fileoperation/fileoperation.c	12;"	d	file:
+OpenDevice	Samples/test_open_device.c	/^void OpenDevice(void)$/;"	f
+POWERIoctl	Core/Hardware/Device_Driver/driver_power.c	/^typedef void (*POWERIoctl)(void *parameter);$/;"	t	file:
+POWER_Options	Core/Framework/Device_Option/POWER_Options.h	/^ }POWER_Options;$/;"	t	typeref:enum:POWER_Options
+POWER_Options	Core/Framework/Device_Option/POWER_Options.h	/^typedef enum POWER_Options{$/;"	g
+POWER_ctx	Core/Hardware/Device_Driver/driver_power.c	/^}POWER_ctx;$/;"	t	typeref:struct:power_ctx	file:
+PWMIoctl	Core/Hardware/Device_Driver/driver_pwm.c	/^typedef void (*PWMIoctl)(void *parameter);$/;"	t	file:
+PWM_ctx	Core/Hardware/Device_Driver/driver_pwm.c	/^}PWM_ctx;$/;"	t	typeref:struct:pwm_ctx	file:
+Power_DeepSleep	Core/Framework/Device_Option/POWER_Options.h	/^	Power_DeepSleep,$/;"	e	enum:POWER_Options
+Power_Hibernate	Core/Framework/Device_Option/POWER_Options.h	/^	Power_Hibernate$/;"	e	enum:POWER_Options
+Power_Reset	Core/Framework/Device_Option/POWER_Options.h	/^	Power_Reset,$/;"	e	enum:POWER_Options
+Power_Shutdown	Core/Framework/Device_Option/POWER_Options.h	/^	Power_Shutdown,$/;"	e	enum:POWER_Options
+Power_Sleep	Core/Framework/Device_Option/POWER_Options.h	/^	Power_Sleep,$/;"	e	enum:POWER_Options
+Power_Status	Core/Framework/Device_Option/POWER_Options.h	/^	Power_Status,$/;"	e	enum:POWER_Options
+Protocol	Core/Framework/Fileoperation/socketoperation.h	/^typedef enum Protocol{$/;"	g
+Protocol	Core/Framework/Fileoperation/socketoperation.h	/^}Protocol;$/;"	t	typeref:enum:Protocol
+SAMPLES_SAMPLES_H_	Samples/Samples.h	9;"	d
+SERIALIoctl	Core/Hardware/Device_Driver/driver_serial.c	/^typedef void (*SERIALIoctl)(void *parameter);$/;"	t	file:
+SERIAL_Options	Core/Framework/Device_Option/SERIAL_Options.h	/^ }SERIAL_Options;$/;"	t	typeref:enum:SERIAL_Options
+SERIAL_Options	Core/Framework/Device_Option/SERIAL_Options.h	/^typedef enum SERIAL_Options{$/;"	g
+SERIAL_ctx	Core/Hardware/Device_Driver/driver_serial.c	/^}SERIAL_ctx;$/;"	t	typeref:struct:serial_ctx	file:
+SPIIoctl	Core/Hardware/Device_Driver/driver_spi.c	/^typedef void (*SPIIoctl)(void *parameter);$/;"	t	file:
+SPI_Options	Core/Framework/Device_Option/SPI_Options.h	/^ }SPI_Options;$/;"	t	typeref:enum:SPI_Options
+SPI_Options	Core/Framework/Device_Option/SPI_Options.h	/^typedef enum SPI_Options{$/;"	g
+SPI_Status	Core/Framework/Device_Option/SPI_Options.h	/^	SPI_Status,$/;"	e	enum:SPI_Options
+SPI_ctx	Core/Hardware/Device_Driver/driver_spi.c	/^}SPI_ctx;$/;"	t	typeref:struct:spi_ctx	file:
+STATUS_INITIALIZED	Core/Common/device_status.h	12;"	d
+STATUS_UNINITIALIZED	Core/Common/device_status.h	11;"	d
+SYSTEMIoctl	Core/Hardware/Device_Driver/driver_system.c	/^typedef void (*SYSTEMIoctl)(void *parameter);$/;"	t	file:
+SYSTEM_ctx	Core/Hardware/Device_Driver/driver_system.c	/^}SYSTEM_ctx;$/;"	t	typeref:struct:system_ctx	file:
+Serial_Descriptor	Core/Framework/HW_Descriptor/Serial_Descriptor.h	/^typedef struct Serial_Descriptor{$/;"	s
+Serial_Descriptor	Core/Framework/HW_Descriptor/Serial_Descriptor.h	/^}Serial_Descriptor;$/;"	t	typeref:struct:Serial_Descriptor
+Serial_Status	Core/Framework/Device_Option/SERIAL_Options.h	/^	Serial_Status,$/;"	e	enum:SERIAL_Options
+System_Clock_Get	Core/Framework/Device_Option/SYSTEM_Options.h	/^	 System_Clock_Get,$/;"	e	enum:System_Options
+System_Clock_Set	Core/Framework/Device_Option/SYSTEM_Options.h	/^	 System_Clock_Set,$/;"	e	enum:System_Options
+System_Options	Core/Framework/Device_Option/SYSTEM_Options.h	/^ typedef enum System_Options{$/;"	g
+System_Options	Core/Framework/Device_Option/SYSTEM_Options.h	/^ }System_Options;$/;"	t	typeref:enum:System_Options
+System_Register_Handler	Core/Framework/Device_Option/SYSTEM_Options.h	/^	 System_Register_Handler,$/;"	e	enum:System_Options
+System_Status	Core/Framework/Device_Option/SYSTEM_Options.h	/^	 System_Status,$/;"	e	enum:System_Options
+System_Unregister_Handler	Core/Framework/Device_Option/SYSTEM_Options.h	/^	 System_Unregister_Handler,$/;"	e	enum:System_Options
+TEMPLATEIoctl	Core/Hardware/Device_Driver/driver_template.c	/^typedef void (*TEMPLATEIoctl)(void *parameter);$/;"	t	file:
+TEMPLATE_ctx	Core/Hardware/Device_Driver/driver_template.c	/^}TEMPLATE_ctx;$/;"	t	typeref:struct:template_ctx	file:
+TIMERIoctl	Core/Hardware/Device_Driver/driver_timer.c	/^typedef void (*TIMERIoctl)(void *parameter);$/;"	t	file:
+TIMER_Options	Core/Framework/Device_Option/TIMER_Options.h	/^ }TIMER_Options;$/;"	t	typeref:enum:TIMER_Options
+TIMER_Options	Core/Framework/Device_Option/TIMER_Options.h	/^typedef enum TIMER_Options{$/;"	g
+TIMER_ctx	Core/Hardware/Device_Driver/driver_timer.c	/^}TIMER_ctx;$/;"	t	typeref:struct:timer_ctx	file:
+Timer_Start	Core/Framework/Device_Option/TIMER_Options.h	/^	Timer_Start,$/;"	e	enum:TIMER_Options
+Timer_Status	Core/Framework/Device_Option/TIMER_Options.h	/^	Timer_Status,$/;"	e	enum:TIMER_Options
+Timer_Stop	Core/Framework/Device_Option/TIMER_Options.h	/^	Timer_Stop$/;"	e	enum:TIMER_Options
+USBIoctl	Core/Hardware/Device_Driver/driver_usb.c	/^typedef void (*USBIoctl)(void *parameter);$/;"	t	file:
+USB_Options	Core/Framework/Device_Option/USB_Options.h	/^ }USB_Options;$/;"	t	typeref:enum:USB_Options
+USB_Options	Core/Framework/Device_Option/USB_Options.h	/^typedef enum USB_Options{$/;"	g
+USB_Status	Core/Framework/Device_Option/USB_Options.h	/^	USB_Status,$/;"	e	enum:USB_Options
+USB_ctx	Core/Hardware/Device_Driver/driver_usb.c	/^}USB_ctx;$/;"	t	typeref:struct:usb_ctx	file:
+WATCHDOGIoctl	Core/Hardware/Device_Driver/driver_watchdog.c	/^typedef void (*WATCHDOGIoctl)(void *parameter);$/;"	t	file:
+WATCHDOG_ctx	Core/Hardware/Device_Driver/driver_watchdog.c	/^}WATCHDOG_ctx;$/;"	t	typeref:struct:watchdog_ctx	file:
+WIFI	Core/Framework/Fileoperation/socketoperation.h	/^	WIFI$/;"	e	enum:Domain
+Watchdog_Disable	Core/Framework/Device_Option/WATCHDOG_Options.h	/^	Watchdog_Disable,$/;"	e	enum:Watchdog_Options
+Watchdog_Enable	Core/Framework/Device_Option/WATCHDOG_Options.h	/^	Watchdog_Enable,$/;"	e	enum:Watchdog_Options
+Watchdog_KeepAlive	Core/Framework/Device_Option/WATCHDOG_Options.h	/^	Watchdog_KeepAlive$/;"	e	enum:Watchdog_Options
+Watchdog_Options	Core/Framework/Device_Option/WATCHDOG_Options.h	/^typedef enum Watchdog_Options{$/;"	g
+Watchdog_Options	Core/Framework/Device_Option/WATCHDOG_Options.h	/^}Watchdog_Options;$/;"	t	typeref:enum:Watchdog_Options
+Watchdog_Set_Handler	Core/Framework/Device_Option/WATCHDOG_Options.h	/^	Watchdog_Set_Handler,$/;"	e	enum:Watchdog_Options
+Watchdog_Status	Core/Framework/Device_Option/WATCHDOG_Options.h	/^	Watchdog_Status,$/;"	e	enum:Watchdog_Options
+_dma_ctx	Core/Hardware/Device_Driver/driver_dma.c	/^static DMA_ctx _dma_ctx = {$/;"	v	file:
+_eeprom_ctx	Core/Hardware/Device_Driver/driver_eeprom.c	/^static EEPROM_ctx _eeprom_ctx = {$/;"	v	file:
+_flash_ctx	Core/Hardware/Device_Driver/driver_flash.c	/^static FLASH_ctx _flash_ctx = {$/;"	v	file:
+_gpio_ctx	Core/Hardware/Device_Driver/driver_gpio.c	/^static GPIO_ctx _gpio_ctx = {$/;"	v	file:
+_i2c_ctx	Core/Hardware/Device_Driver/driver_i2c.c	/^static I2C_ctx _i2c_ctx = {$/;"	v	file:
+_power_ctx	Core/Hardware/Device_Driver/driver_power.c	/^static POWER_ctx _power_ctx = {$/;"	v	file:
+_pwm_ctx	Core/Hardware/Device_Driver/driver_pwm.c	/^static PWM_ctx _pwm_ctx = {$/;"	v	file:
+_serial_ctx	Core/Hardware/Device_Driver/driver_serial.c	/^static SERIAL_ctx _serial_ctx = {$/;"	v	file:
+_spi_ctx	Core/Hardware/Device_Driver/driver_spi.c	/^static SPI_ctx _spi_ctx = {$/;"	v	file:
+_system_ctx	Core/Hardware/Device_Driver/driver_system.c	/^static SYSTEM_ctx _system_ctx = {$/;"	v	file:
+_template_ctx	Core/Hardware/Device_Driver/driver_template.c	/^static TEMPLATE_ctx _template_ctx = {$/;"	v	file:
+_timer_ctx	Core/Hardware/Device_Driver/driver_timer.c	/^static TIMER_ctx _timer_ctx = {$/;"	v	file:
+_usb_ctx	Core/Hardware/Device_Driver/driver_usb.c	/^static USB_ctx _usb_ctx = {$/;"	v	file:
+_watchdog_ctx	Core/Hardware/Device_Driver/driver_watchdog.c	/^static WATCHDOG_ctx _watchdog_ctx = {$/;"	v	file:
+accept	Core/Framework/IDriver/ISocketDriver.h	/^	int8_t (*accept)(const void *context);$/;"	m	struct:ISocketDriver
+ad_ctx	Core/Hardware/Device_Driver/driver_adc.c	/^static Adc_ctx ad_ctx = {$/;"	v	file:
+adc_close	Core/Hardware/Device_Driver/driver_adc.c	/^int8_t  adc_close(const void *descriptor)$/;"	f
+adc_ctx	Core/Hardware/Device_Driver/driver_adc.c	/^typedef struct adc_ctx{$/;"	s	file:
+adc_driver	Core/Hardware/Device_Driver/driver_adc.h	/^const FileDriver adc_driver = {$/;"	v
+adc_init	Core/Hardware/Device_Driver/driver_adc.c	/^int8_t  adc_init (const void *descriptor)$/;"	f
+adc_ioctl	Core/Hardware/Device_Driver/driver_adc.c	/^int8_t  adc_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+adc_ioctl_functions	Core/Hardware/Device_Driver/driver_adc.c	/^AdcIoctl adc_ioctl_functions[] = {$/;"	v
+adc_open	Core/Hardware/Device_Driver/driver_adc.c	/^int8_t  adc_open (const void *descriptor)$/;"	f
+adc_read	Core/Hardware/Device_Driver/driver_adc.c	/^int32_t adc_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+adc_write	Core/Hardware/Device_Driver/driver_adc.c	/^int32_t adc_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+bind	Core/Framework/IDriver/ISocketDriver.h	/^	int8_t (*bind)(const void *context);$/;"	m	struct:ISocketDriver
+close	Core/Framework/IDriver/IFileDriver.h	/^	int8_t (*close)(const void *context);$/;"	m	struct:FileDriver
+close	Core/Framework/IDriver/ISocketDriver.h	/^	int8_t (*close)(const void *context);$/;"	m	struct:ISocketDriver
+connect	Core/Framework/IDriver/ISocketDriver.h	/^	int8_t (*connect)(const void *context);$/;"	m	struct:ISocketDriver
+descriptor	Core/Framework/Fileoperation/fileoperation.h	/^	const void *descriptor;		\/*!< Device state  *\/$/;"	m	struct:fileoperation
+descriptor	Core/Framework/Fileoperation/socketoperation.h	/^	const void *descriptor;		\/*!< Device state  *\/$/;"	m	struct:socketoperation
+device_close	Core/Framework/Fileoperation/fileoperation.c	/^int8_t  device_close(int8_t device_handle)$/;"	f
+device_ioctl	Core/Framework/Fileoperation/fileoperation.c	/^int8_t  device_ioctl(int8_t device_handle, uint8_t command, void *args)$/;"	f
+device_name	Core/Framework/Fileoperation/fileoperation.h	/^	const char *device_name;	\/*!< Name of device *\/$/;"	m	struct:fileoperation
+device_open	Core/Framework/Fileoperation/fileoperation.c	/^int8_t  device_open (const int8_t *name)$/;"	f
+device_read	Core/Framework/Fileoperation/fileoperation.c	/^int32_t device_read (int8_t device_handle, void *buffer_read, uint32_t size)$/;"	f
+device_write	Core/Framework/Fileoperation/fileoperation.c	/^int32_t device_write(int8_t device_handle, const void *buffer_write, uint32_t size)$/;"	f
+devices	Core/BSP/bsp.c	/^fileoperation devices[] =$/;"	v
+devices_amount	Core/BSP/bsp.c	/^uint8_t devices_amount = sizeof(devices) \/ sizeof(devices[0]);$/;"	v
+dma_close	Core/Hardware/Device_Driver/driver_dma.c	/^int8_t  dma_close(const void *descriptor)$/;"	f
+dma_ctx	Core/Hardware/Device_Driver/driver_dma.c	/^typedef struct dma_ctx{$/;"	s	file:
+dma_driver	Core/Hardware/Device_Driver/driver_dma.h	/^const FileDriver dma_driver = {$/;"	v
+dma_init	Core/Hardware/Device_Driver/driver_dma.c	/^int8_t  dma_init (const void *descriptor)$/;"	f
+dma_ioctl	Core/Hardware/Device_Driver/driver_dma.c	/^int8_t  dma_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+dma_ioctl_functions	Core/Hardware/Device_Driver/driver_dma.c	/^DMAIoctl dma_ioctl_functions[] = {$/;"	v
+dma_open	Core/Hardware/Device_Driver/driver_dma.c	/^int8_t  dma_open (const void *descriptor)$/;"	f
+dma_read	Core/Hardware/Device_Driver/driver_dma.c	/^int32_t dma_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+dma_write	Core/Hardware/Device_Driver/driver_dma.c	/^int32_t dma_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+domain	Core/Framework/Fileoperation/socketoperation.h	/^	Domain domain;				\/*!< Domain*\/$/;"	m	struct:socketoperation
+driver	Core/Framework/Fileoperation/fileoperation.h	/^	const FileDriver *driver;$/;"	m	struct:fileoperation
+eeprom_close	Core/Hardware/Device_Driver/driver_eeprom.c	/^int8_t  eeprom_close(const void *descriptor)$/;"	f
+eeprom_ctx	Core/Hardware/Device_Driver/driver_eeprom.c	/^typedef struct eeprom_ctx{$/;"	s	file:
+eeprom_driver	Core/Hardware/Device_Driver/driver_eeprom.h	/^const FileDriver eeprom_driver = {$/;"	v
+eeprom_init	Core/Hardware/Device_Driver/driver_eeprom.c	/^int8_t  eeprom_init (const void *descriptor)$/;"	f
+eeprom_ioctl	Core/Hardware/Device_Driver/driver_eeprom.c	/^int8_t  eeprom_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+eeprom_ioctl_functions	Core/Hardware/Device_Driver/driver_eeprom.c	/^EEPROMIoctl eeprom_ioctl_functions[] = {$/;"	v
+eeprom_open	Core/Hardware/Device_Driver/driver_eeprom.c	/^int8_t  eeprom_open (const void *descriptor)$/;"	f
+eeprom_read	Core/Hardware/Device_Driver/driver_eeprom.c	/^int32_t eeprom_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+eeprom_write	Core/Hardware/Device_Driver/driver_eeprom.c	/^int32_t eeprom_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+fileoperation	Core/Framework/Fileoperation/fileoperation.h	/^typedef struct fileoperation{$/;"	s
+fileoperation	Core/Framework/Fileoperation/fileoperation.h	/^}fileoperation;$/;"	t	typeref:struct:fileoperation
+flash_close	Core/Hardware/Device_Driver/driver_flash.c	/^int8_t  flash_close(const void *descriptor)$/;"	f
+flash_ctx	Core/Hardware/Device_Driver/driver_flash.c	/^typedef struct flash_ctx{$/;"	s	file:
+flash_driver	Core/Hardware/Device_Driver/driver_flash.h	/^const FileDriver flash_driver = {$/;"	v
+flash_init	Core/Hardware/Device_Driver/driver_flash.c	/^int8_t  flash_init (const void *descriptor)$/;"	f
+flash_ioctl	Core/Hardware/Device_Driver/driver_flash.c	/^int8_t  flash_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+flash_ioctl_functions	Core/Hardware/Device_Driver/driver_flash.c	/^FLASHIoctl flash_ioctl_functions[] = {$/;"	v
+flash_open	Core/Hardware/Device_Driver/driver_flash.c	/^int8_t  flash_open (const void *descriptor)$/;"	f
+flash_read	Core/Hardware/Device_Driver/driver_flash.c	/^int32_t flash_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+flash_write	Core/Hardware/Device_Driver/driver_flash.c	/^int32_t flash_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+gpio_close	Core/Hardware/Device_Driver/driver_gpio.c	/^int8_t  gpio_close(const void *descriptor)$/;"	f
+gpio_ctx	Core/Hardware/Device_Driver/driver_gpio.c	/^typedef struct gpio_ctx{$/;"	s	file:
+gpio_driver	Core/Hardware/Device_Driver/driver_gpio.h	/^const FileDriver gpio_driver = {$/;"	v
+gpio_init	Core/Hardware/Device_Driver/driver_gpio.c	/^int8_t  gpio_init (const void *descriptor)$/;"	f
+gpio_ioctl	Core/Hardware/Device_Driver/driver_gpio.c	/^int8_t  gpio_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+gpio_ioctl_functions	Core/Hardware/Device_Driver/driver_gpio.c	/^GPIOIoctl gpio_ioctl_functions[] = {$/;"	v
+gpio_open	Core/Hardware/Device_Driver/driver_gpio.c	/^int8_t  gpio_open (const void *descriptor)$/;"	f
+gpio_read	Core/Hardware/Device_Driver/driver_gpio.c	/^int32_t gpio_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+gpio_write	Core/Hardware/Device_Driver/driver_gpio.c	/^int32_t gpio_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+i2c_close	Core/Hardware/Device_Driver/driver_i2c.c	/^int8_t  i2c_close(const void *descriptor)$/;"	f
+i2c_ctx	Core/Hardware/Device_Driver/driver_i2c.c	/^typedef struct i2c_ctx{$/;"	s	file:
+i2c_driver	Core/Hardware/Device_Driver/driver_i2c.h	/^const FileDriver i2c_driver = {$/;"	v
+i2c_init	Core/Hardware/Device_Driver/driver_i2c.c	/^int8_t  i2c_init (const void *descriptor)$/;"	f
+i2c_ioctl	Core/Hardware/Device_Driver/driver_i2c.c	/^int8_t  i2c_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+i2c_ioctl_functions	Core/Hardware/Device_Driver/driver_i2c.c	/^I2CIoctl i2c_ioctl_functions[] = {$/;"	v
+i2c_open	Core/Hardware/Device_Driver/driver_i2c.c	/^int8_t  i2c_open (const void *descriptor)$/;"	f
+i2c_read	Core/Hardware/Device_Driver/driver_i2c.c	/^int32_t i2c_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+i2c_write	Core/Hardware/Device_Driver/driver_i2c.c	/^int32_t i2c_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+id	Core/Framework/HW_Descriptor/Serial_Descriptor.h	/^	uint8_t id;$/;"	m	struct:Serial_Descriptor
+init	Core/Framework/IDriver/IFileDriver.h	/^	int8_t (*init)(const void *context);$/;"	m	struct:FileDriver
+init	Core/Hardware/Device_Driver/driver_adc.c	/^	uint8_t init;$/;"	m	struct:adc_ctx	file:
+init	Core/Hardware/Device_Driver/driver_dma.c	/^	uint8_t init;$/;"	m	struct:dma_ctx	file:
+init	Core/Hardware/Device_Driver/driver_eeprom.c	/^	uint8_t init;$/;"	m	struct:eeprom_ctx	file:
+init	Core/Hardware/Device_Driver/driver_flash.c	/^	uint8_t init;$/;"	m	struct:flash_ctx	file:
+init	Core/Hardware/Device_Driver/driver_gpio.c	/^	uint8_t init;$/;"	m	struct:gpio_ctx	file:
+init	Core/Hardware/Device_Driver/driver_i2c.c	/^	uint8_t init;$/;"	m	struct:i2c_ctx	file:
+init	Core/Hardware/Device_Driver/driver_power.c	/^	uint8_t init;$/;"	m	struct:power_ctx	file:
+init	Core/Hardware/Device_Driver/driver_pwm.c	/^	uint8_t init;$/;"	m	struct:pwm_ctx	file:
+init	Core/Hardware/Device_Driver/driver_serial.c	/^	uint8_t init;$/;"	m	struct:serial_ctx	file:
+init	Core/Hardware/Device_Driver/driver_spi.c	/^	uint8_t init;$/;"	m	struct:spi_ctx	file:
+init	Core/Hardware/Device_Driver/driver_system.c	/^	uint8_t init;$/;"	m	struct:system_ctx	file:
+init	Core/Hardware/Device_Driver/driver_template.c	/^	uint8_t init;$/;"	m	struct:template_ctx	file:
+init	Core/Hardware/Device_Driver/driver_timer.c	/^	uint8_t init;$/;"	m	struct:timer_ctx	file:
+init	Core/Hardware/Device_Driver/driver_usb.c	/^	uint8_t init;$/;"	m	struct:usb_ctx	file:
+init	Core/Hardware/Device_Driver/driver_watchdog.c	/^	uint8_t init;$/;"	m	struct:watchdog_ctx	file:
+ioctl	Core/Framework/IDriver/IFileDriver.h	/^	int8_t (*ioctl)(const void *context, uint8_t command, void *args);$/;"	m	struct:FileDriver
+ioctl	Core/Framework/IDriver/ISocketDriver.h	/^	int8_t (*ioctl)(const void *context, uint8_t command, void *args);$/;"	m	struct:ISocketDriver
+ioctl_list_size	Core/Hardware/Device_Driver/driver_adc.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:adc_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_dma.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:dma_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_eeprom.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:eeprom_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_flash.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:flash_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_gpio.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:gpio_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_i2c.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:i2c_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_power.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:power_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_pwm.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:pwm_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_serial.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:serial_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_spi.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:spi_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_system.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:system_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_template.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:template_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_timer.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:timer_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_usb.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:usb_ctx	file:
+ioctl_list_size	Core/Hardware/Device_Driver/driver_watchdog.c	/^	uint8_t ioctl_list_size;$/;"	m	struct:watchdog_ctx	file:
+isOpen	Core/Framework/Fileoperation/fileoperation.h	/^	bool isOpen;				\/*!< Device state  *\/$/;"	m	struct:fileoperation
+isOpen	Core/Framework/Fileoperation/socketoperation.h	/^	bool isOpen;				\/*!< Device state  *\/$/;"	m	struct:socketoperation
+listen	Core/Framework/IDriver/ISocketDriver.h	/^	int8_t (*listen)(const void *context);$/;"	m	struct:ISocketDriver
+main	main.c	/^int main(int argc, char **argv) {$/;"	f
+open	Core/Framework/IDriver/IFileDriver.h	/^	int8_t (*open)(const void *context);$/;"	m	struct:FileDriver
+pDevices	Core/BSP/bsp.c	/^fileoperation *pDevices = devices;$/;"	v
+power_close	Core/Hardware/Device_Driver/driver_power.c	/^int8_t  power_close(const void *descriptor)$/;"	f
+power_ctx	Core/Hardware/Device_Driver/driver_power.c	/^typedef struct power_ctx{$/;"	s	file:
+power_driver	Core/Hardware/Device_Driver/driver_power.h	/^const FileDriver power_driver = {$/;"	v
+power_init	Core/Hardware/Device_Driver/driver_power.c	/^int8_t  power_init (const void *descriptor)$/;"	f
+power_ioctl	Core/Hardware/Device_Driver/driver_power.c	/^int8_t  power_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+power_ioctl_functions	Core/Hardware/Device_Driver/driver_power.c	/^POWERIoctl power_ioctl_functions[] = {$/;"	v
+power_open	Core/Hardware/Device_Driver/driver_power.c	/^int8_t  power_open (const void *descriptor)$/;"	f
+power_read	Core/Hardware/Device_Driver/driver_power.c	/^int32_t power_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+power_write	Core/Hardware/Device_Driver/driver_power.c	/^int32_t power_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+private_adc_getStatus	Core/Hardware/Device_Driver/driver_adc.c	/^static void private_adc_getStatus(void *args)$/;"	f	file:
+private_dma_getStatus	Core/Hardware/Device_Driver/driver_dma.c	/^static void private_dma_getStatus(void *args)$/;"	f	file:
+private_eeprom_getStatus	Core/Hardware/Device_Driver/driver_eeprom.c	/^static void private_eeprom_getStatus(void *args)$/;"	f	file:
+private_flash_getStatus	Core/Hardware/Device_Driver/driver_flash.c	/^static void private_flash_getStatus(void *args)$/;"	f	file:
+private_gpio_getStatus	Core/Hardware/Device_Driver/driver_gpio.c	/^static void private_gpio_getStatus(void *args)$/;"	f	file:
+private_i2c_getStatus	Core/Hardware/Device_Driver/driver_i2c.c	/^static void private_i2c_getStatus(void *args)$/;"	f	file:
+private_power_getStatus	Core/Hardware/Device_Driver/driver_power.c	/^static void private_power_getStatus(void *args)$/;"	f	file:
+private_pwm_getStatus	Core/Hardware/Device_Driver/driver_pwm.c	/^static void private_pwm_getStatus(void *args)$/;"	f	file:
+private_serial_getStatus	Core/Hardware/Device_Driver/driver_serial.c	/^static void private_serial_getStatus(void *args)$/;"	f	file:
+private_spi_getStatus	Core/Hardware/Device_Driver/driver_spi.c	/^static void private_spi_getStatus(void *args)$/;"	f	file:
+private_system_getStatus	Core/Hardware/Device_Driver/driver_system.c	/^static void private_system_getStatus(void *args)$/;"	f	file:
+private_template_getStatus	Core/Hardware/Device_Driver/driver_template.c	/^static void private_template_getStatus(void *args)$/;"	f	file:
+private_timer_getStatus	Core/Hardware/Device_Driver/driver_timer.c	/^static void private_timer_getStatus(void *args)$/;"	f	file:
+private_usb_getStatus	Core/Hardware/Device_Driver/driver_usb.c	/^static void private_usb_getStatus(void *args)$/;"	f	file:
+private_watchdog_getStatus	Core/Hardware/Device_Driver/driver_watchdog.c	/^static void private_watchdog_getStatus(void *args)$/;"	f	file:
+pwm_close	Core/Hardware/Device_Driver/driver_pwm.c	/^int8_t  pwm_close(const void *descriptor)$/;"	f
+pwm_ctx	Core/Hardware/Device_Driver/driver_pwm.c	/^typedef struct pwm_ctx{$/;"	s	file:
+pwm_driver	Core/Hardware/Device_Driver/driver_pwm.h	/^const FileDriver pwm_driver = {$/;"	v
+pwm_init	Core/Hardware/Device_Driver/driver_pwm.c	/^int8_t  pwm_init (const void *descriptor)$/;"	f
+pwm_ioctl	Core/Hardware/Device_Driver/driver_pwm.c	/^int8_t  pwm_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+pwm_ioctl_functions	Core/Hardware/Device_Driver/driver_pwm.c	/^PWMIoctl pwm_ioctl_functions[] = {$/;"	v
+pwm_open	Core/Hardware/Device_Driver/driver_pwm.c	/^int8_t  pwm_open (const void *descriptor)$/;"	f
+pwm_read	Core/Hardware/Device_Driver/driver_pwm.c	/^int32_t pwm_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+pwm_write	Core/Hardware/Device_Driver/driver_pwm.c	/^int32_t pwm_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+read	Core/Framework/IDriver/IFileDriver.h	/^	int32_t(*read)(const void *context, void *rd_buffer, uint32_t size);$/;"	m	struct:FileDriver
+receive	Core/Framework/IDriver/ISocketDriver.h	/^	uint32_t (*receive)(const void *context, void *receive_bf, uint32_t size);$/;"	m	struct:ISocketDriver
+send	Core/Framework/IDriver/ISocketDriver.h	/^	uint32_t (*send)(const void *context, const void *send_bf, uint32_t size);$/;"	m	struct:ISocketDriver
+serial_close	Core/Hardware/Device_Driver/driver_serial.c	/^int8_t  serial_close(const void *descriptor)$/;"	f
+serial_ctx	Core/Hardware/Device_Driver/driver_serial.c	/^typedef struct serial_ctx{$/;"	s	file:
+serial_driver	Core/Hardware/Device_Driver/driver_serial.h	/^const FileDriver serial_driver = {$/;"	v
+serial_init	Core/Hardware/Device_Driver/driver_serial.c	/^int8_t  serial_init (const void *descriptor)$/;"	f
+serial_ioctl	Core/Hardware/Device_Driver/driver_serial.c	/^int8_t  serial_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+serial_ioctl_functions	Core/Hardware/Device_Driver/driver_serial.c	/^SERIALIoctl serial_ioctl_functions[] = {$/;"	v
+serial_name	Core/Framework/HW_Descriptor/Serial_Descriptor.h	/^	const uint8_t *serial_name;$/;"	m	struct:Serial_Descriptor
+serial_open	Core/Hardware/Device_Driver/driver_serial.c	/^int8_t  serial_open (const void *descriptor)$/;"	f
+serial_read	Core/Hardware/Device_Driver/driver_serial.c	/^int32_t serial_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+serial_write	Core/Hardware/Device_Driver/driver_serial.c	/^int32_t serial_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+socket	Core/Framework/IDriver/ISocketDriver.h	/^	int8_t (*socket)(const void *context);$/;"	m	struct:ISocketDriver
+socket_accept	Core/Framework/Fileoperation/socketoperation.c	/^int8_t socket_accept(int8_t socket_handle, void * addr, uint32_t size)$/;"	f
+socket_bind	Core/Framework/Fileoperation/socketoperation.c	/^int8_t socket_bind(int8_t socket_handle, const void *addr, uint32_t size)$/;"	f
+socket_close	Core/Framework/Fileoperation/socketoperation.c	/^int8_t socket_close(uint8_t socket_handle)$/;"	f
+socket_connect	Core/Framework/Fileoperation/socketoperation.c	/^int8_t socket_connect(int8_t socket_handle, void * addr, uint32_t size)$/;"	f
+socket_listen	Core/Framework/Fileoperation/socketoperation.c	/^int8_t socket_listen(int8_t socket_handle, int32_t backlog)$/;"	f
+socket_open	Core/Framework/Fileoperation/socketoperation.c	/^int8_t  socket_open (Domain domain, COMMType commtype, Protocol protocol)$/;"	f
+socket_receive	Core/Framework/Fileoperation/socketoperation.c	/^int32_t socket_receive(int8_t socket_handle, void *buf, int32_t len, int16_t flags)$/;"	f
+socket_send	Core/Framework/Fileoperation/socketoperation.c	/^int32_t socket_send(int8_t socket_handle, const void *buf, int32_t len, int16_t flags)$/;"	f
+socketdriver	Core/Framework/Fileoperation/socketoperation.h	/^	const ISocketDriver *socketdriver;$/;"	m	struct:socketoperation
+socketoperation	Core/Framework/Fileoperation/socketoperation.h	/^typedef struct socketoperation{$/;"	s
+socketoperation	Core/Framework/Fileoperation/socketoperation.h	/^}socketoperation;$/;"	t	typeref:struct:socketoperation
+spi_close	Core/Hardware/Device_Driver/driver_spi.c	/^int8_t  spi_close(const void *descriptor)$/;"	f
+spi_ctx	Core/Hardware/Device_Driver/driver_spi.c	/^typedef struct spi_ctx{$/;"	s	file:
+spi_driver	Core/Hardware/Device_Driver/driver_spi.h	/^const FileDriver spi_driver = {$/;"	v
+spi_init	Core/Hardware/Device_Driver/driver_spi.c	/^int8_t  spi_init (const void *descriptor)$/;"	f
+spi_ioctl	Core/Hardware/Device_Driver/driver_spi.c	/^int8_t  spi_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+spi_ioctl_functions	Core/Hardware/Device_Driver/driver_spi.c	/^SPIIoctl spi_ioctl_functions[] = {$/;"	v
+spi_open	Core/Hardware/Device_Driver/driver_spi.c	/^int8_t  spi_open (const void *descriptor)$/;"	f
+spi_read	Core/Hardware/Device_Driver/driver_spi.c	/^int32_t spi_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+spi_write	Core/Hardware/Device_Driver/driver_spi.c	/^int32_t spi_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+system_close	Core/Hardware/Device_Driver/driver_system.c	/^int8_t  system_close(const void *descriptor)$/;"	f
+system_ctx	Core/Hardware/Device_Driver/driver_system.c	/^typedef struct system_ctx{$/;"	s	file:
+system_driver	Core/Hardware/Device_Driver/driver_system.h	/^const FileDriver system_driver = {$/;"	v
+system_init	Core/Hardware/Device_Driver/driver_system.c	/^int8_t  system_init (const void *descriptor)$/;"	f
+system_ioctl	Core/Hardware/Device_Driver/driver_system.c	/^int8_t  system_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+system_ioctl_functions	Core/Hardware/Device_Driver/driver_system.c	/^SYSTEMIoctl system_ioctl_functions[] = {$/;"	v
+system_open	Core/Hardware/Device_Driver/driver_system.c	/^int8_t  system_open (const void *descriptor)$/;"	f
+system_read	Core/Hardware/Device_Driver/driver_system.c	/^int32_t system_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+system_write	Core/Hardware/Device_Driver/driver_system.c	/^int32_t system_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+template_close	Core/Hardware/Device_Driver/driver_template.c	/^int8_t  template_close(const void *descriptor)$/;"	f
+template_ctx	Core/Hardware/Device_Driver/driver_template.c	/^typedef struct template_ctx{$/;"	s	file:
+template_driver	Core/Hardware/Device_Driver/driver_template.h	/^const Driver template_driver = {$/;"	v
+template_init	Core/Hardware/Device_Driver/driver_template.c	/^int8_t  template_init (const void *descriptor)$/;"	f
+template_ioctl	Core/Hardware/Device_Driver/driver_template.c	/^int8_t  template_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+template_ioctl_functions	Core/Hardware/Device_Driver/driver_template.c	/^TEMPLATEIoctl template_ioctl_functions[] = {$/;"	v
+template_open	Core/Hardware/Device_Driver/driver_template.c	/^int8_t  template_open (const void *descriptor)$/;"	f
+template_read	Core/Hardware/Device_Driver/driver_template.c	/^int32_t template_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+template_write	Core/Hardware/Device_Driver/driver_template.c	/^int32_t template_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+timer_close	Core/Hardware/Device_Driver/driver_timer.c	/^int8_t  timer_close(const void *descriptor)$/;"	f
+timer_ctx	Core/Hardware/Device_Driver/driver_timer.c	/^typedef struct timer_ctx{$/;"	s	file:
+timer_driver	Core/Hardware/Device_Driver/driver_timer.h	/^const FileDriver timer_driver = {$/;"	v
+timer_init	Core/Hardware/Device_Driver/driver_timer.c	/^int8_t  timer_init (const void *descriptor)$/;"	f
+timer_ioctl	Core/Hardware/Device_Driver/driver_timer.c	/^int8_t  timer_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+timer_ioctl_functions	Core/Hardware/Device_Driver/driver_timer.c	/^TIMERIoctl timer_ioctl_functions[] = {$/;"	v
+timer_open	Core/Hardware/Device_Driver/driver_timer.c	/^int8_t  timer_open (const void *descriptor)$/;"	f
+timer_read	Core/Hardware/Device_Driver/driver_timer.c	/^int32_t timer_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+timer_write	Core/Hardware/Device_Driver/driver_timer.c	/^int32_t timer_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+usb_close	Core/Hardware/Device_Driver/driver_usb.c	/^int8_t  usb_close(const void *descriptor)$/;"	f
+usb_ctx	Core/Hardware/Device_Driver/driver_usb.c	/^typedef struct usb_ctx{$/;"	s	file:
+usb_driver	Core/Hardware/Device_Driver/driver_usb.h	/^const FileDriver usb_driver = {$/;"	v
+usb_init	Core/Hardware/Device_Driver/driver_usb.c	/^int8_t  usb_init (const void *descriptor)$/;"	f
+usb_ioctl	Core/Hardware/Device_Driver/driver_usb.c	/^int8_t  usb_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+usb_ioctl_functions	Core/Hardware/Device_Driver/driver_usb.c	/^USBIoctl usb_ioctl_functions[] = {$/;"	v
+usb_open	Core/Hardware/Device_Driver/driver_usb.c	/^int8_t  usb_open (const void *descriptor)$/;"	f
+usb_read	Core/Hardware/Device_Driver/driver_usb.c	/^int32_t usb_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+usb_write	Core/Hardware/Device_Driver/driver_usb.c	/^int32_t usb_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+watchdog_close	Core/Hardware/Device_Driver/driver_watchdog.c	/^int8_t  watchdog_close(const void *descriptor)$/;"	f
+watchdog_ctx	Core/Hardware/Device_Driver/driver_watchdog.c	/^typedef struct watchdog_ctx{$/;"	s	file:
+watchdog_driver	Core/Hardware/Device_Driver/driver_watchdog.h	/^const FileDriver watchdog_driver = {$/;"	v
+watchdog_init	Core/Hardware/Device_Driver/driver_watchdog.c	/^int8_t  watchdog_init (const void *descriptor)$/;"	f
+watchdog_ioctl	Core/Hardware/Device_Driver/driver_watchdog.c	/^int8_t  watchdog_ioctl(const void *descriptor, uint8_t command, void *args)$/;"	f
+watchdog_ioctl_functions	Core/Hardware/Device_Driver/driver_watchdog.c	/^WATCHDOGIoctl watchdog_ioctl_functions[] = {$/;"	v
+watchdog_open	Core/Hardware/Device_Driver/driver_watchdog.c	/^int8_t  watchdog_open (const void *descriptor)$/;"	f
+watchdog_read	Core/Hardware/Device_Driver/driver_watchdog.c	/^int32_t watchdog_read (const void *descriptor, void *buffer_read, uint32_t size)$/;"	f
+watchdog_write	Core/Hardware/Device_Driver/driver_watchdog.c	/^int32_t watchdog_write(const void *descriptor, const void *buffer_write, uint32_t size)$/;"	f
+write	Core/Framework/IDriver/IFileDriver.h	/^	int32_t(*write)(const void *context, const void *wr_buffer, uint32_t size);$/;"	m	struct:FileDriver
