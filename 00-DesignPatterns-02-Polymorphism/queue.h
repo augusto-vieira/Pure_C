@@ -34,12 +34,12 @@ int Queue_Cleanup(Queue *const me);
 /* Operations */
 
 int Queue_isFull(Queue *const me);
-int Queue_isEMpty(Queue *const me);
+int Queue_isEmpty(Queue *const me);
 int Queue_getSize(Queue *const me);
 int Queue_insert(Queue *const me, int data);
 int Queue_remove(Queue *const me);
 
-Queue_Create(void);
+Queue *Queue_Create(void);
 int Queue_Destroy(Queue *const me);
 
 #endif
