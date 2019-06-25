@@ -7,6 +7,8 @@ struct mesg_buffer{
     char mesg_text[100];
 }message;
 
+
+
 int main(int argc, char *argv[])
 {
     key_t key;

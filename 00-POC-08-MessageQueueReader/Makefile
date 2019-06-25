@@ -16,7 +16,8 @@ SOURCES := $(wildcard *.c)
 OBJS := $(SOURCES:.c=.o)
 
 # Target 
-TARGET := prog
+TARGET := queue_reader
+
 
 #recipes
 
