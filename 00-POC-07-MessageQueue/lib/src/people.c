@@ -26,7 +26,8 @@ int people_register(people_t *p)
   printf("Enter name: ");
   fgets(p->name, sizeof(p->name), stdin);
   printf("Enter age: ");
-  scanf("%d ", &p->age);
+  scanf("%d", &p->age);
+  getchar();
   printf("Enter address: ");
   fgets(p->addr, sizeof(p->addr), stdin);
 }
