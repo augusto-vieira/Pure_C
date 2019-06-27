@@ -1,23 +1,30 @@
 #include <stdio.h>
 #include <pqueue.h>
 #include <string.h>
+#include <data.h>
 
-queue_t message1;
-queue_t message2;
+queue_t message;
 
 int main(int argc, char *argv[])
 {
     int msgid;
+    data_t d;
+
+    data_init(&d);
+    d.id = 1;
+    
 
     msgid = queue_init("progfile");
-    
-    message1.id= 1;
-    strcpy(message1.b, "Hello World");
-    queue_send(msgid, &message1);
+    message.id= 1;
+    strcpy(d.b_data, "Hello World");
+    memcpy(message.b, &d, sizeof(data_t));
+    queue_send(msgid, &message);
+    data_init(&d);
 
-    message2.id= 2;
-    strcpy(message2.b, "Hallo Welt");
-    queue_send(msgid, &message2);
+    d.id = 2;
+    strcpy(d.b_data, "Hallo Welt");
+    memcpy(message.b, &d, sizeof(data_t));
+    queue_send(msgid, &message);
 
     return 0;
 }

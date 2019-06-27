@@ -2,6 +2,7 @@
 #include <pqueue.h>
 #include <string.h>
 #include <signal.h>
+#include <data.h>
 
 static int quit = 0;
 
@@ -13,12 +14,12 @@ void quit_handler(int sig_num)
 
 queue_t message;
 
-void analize_id(queue_t *m);
+void analize_id(data_t  *m);
 
 int main(int argc, char *argv[])
 {
     int msgid;
-
+    data_t d;
     //register quit_handler 
     signal(SIGINT, quit_handler);
     msgid = queue_init("progfile");
@@ -27,8 +28,11 @@ int main(int argc, char *argv[])
     {
       printf("waiting message...\n");
       memset(message.b, 0, sizeof(message.b));
-      queue_recv(msgid, &message, 2);
-      analize_id(&message);
+      queue_recv(msgid, &message, 1);
+      
+      data_init(&d);
+      memcpy(&d, message.b, sizeof(data_t));
+      analize_id(&d);
     }
     printf("Finished.\n");
 
@@ -36,7 +40,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void analize_id(queue_t *m)
+void analize_id(data_t *m)
 {
   if(m == NULL)
     return ;
@@ -56,6 +60,6 @@ void analize_id(queue_t *m)
 
   }
   
-  printf("%s\n", m->b);
+  printf("%s\n", m->b_data);
   return ;
 }

@@ -10,6 +10,7 @@ target_sources(lib
   PUBLIC
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/pqueue.c
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/people.c
+  ${CMAKE_CURRENT_LIST_DIR}/lib/src/data.c
   )
 target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
 
