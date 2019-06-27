@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
     }
     printf("Finished.\n");
 
-//    msgctl (msgid, IPC_RMID, NULL);
-
+    queue_delete(msgid);
     return 0;
 }
