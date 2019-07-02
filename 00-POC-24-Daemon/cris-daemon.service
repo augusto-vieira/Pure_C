@@ -1,0 +1,9 @@
+[Unit]
+Description=Cris Daemon
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/cris-daemon
+
+[Install]
+WantedBy=multi-user.target
