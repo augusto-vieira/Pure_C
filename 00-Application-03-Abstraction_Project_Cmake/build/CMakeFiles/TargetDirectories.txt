@@ -1,3 +1,0 @@
-/home/cssouza/Desktop/Pure_C/00-Application-03-Abstraction_Project_Cmake/build/CMakeFiles/rebuild_cache.dir
-/home/cssouza/Desktop/Pure_C/00-Application-03-Abstraction_Project_Cmake/build/CMakeFiles/core.dir
-/home/cssouza/Desktop/Pure_C/00-Application-03-Abstraction_Project_Cmake/build/CMakeFiles/edit_cache.dir
