@@ -4,7 +4,8 @@
 #include <fcntl.h>
 #include <string.h>
 //#include <ndbm.h>
-#include <gdbm-ndbm.h>
+//#include <gdbm-ndbm.h>
+#include <gdbm.h>
 
 #define TEST_DB_FILE "/tmp/dbm1_test"
 #define ITEMS_USED 3
@@ -27,9 +28,9 @@ int main()
   datum key_datum;
   datum data_datum;
 
-  DBM *dbm_ptr;
+  GDBM_FILE dbm_ptr;
 
-  dbm_ptr = dbm_open(TEST_DB_FILE, O_RDWR | O_CREAT, 0666);
+  dbm_ptr = gdbm_open(TEST_DB_FILE,0, O_RDWR | O_CREAT, 0666, 0);
   if(!dbm_ptr)
   {
     fprintf(stderr, "Failed to open database\n");
@@ -54,14 +55,14 @@ int main()
     sprintf(key_to_use, "%c%c%d",
         items_to_store[i].misc_chars[0],
         items_to_store[i].more_chars[0],
-        items_to_store[i].any_integer[0]);
+        items_to_store[i].any_integer);
 
     key_datum.dptr = (void *)key_to_use;
     key_datum.dsize = strlen(key_to_use);
     data_datum.dptr = (void *)&items_to_store[i];
     data_datum.dsize = sizeof(struct test_data);
 
-    result = dbm_store(dbm_ptr, key_datum, data_datum, DBM_REPLACE);
+    result = gdbm_store(dbm_ptr, key_datum, data_datum, GDBM_REPLACE);
     if(result != 0)
     {
       fprintf(stderr, "dbm_store failed on key %s\n", key_to_use);
@@ -72,11 +73,11 @@ int main()
     key_datum.dptr = key_to_use;
     key_datum.dsize = strlen(key_to_use);
 
-    data_datum = dbm_fetch(dbm_ptr, key_datum);
+    data_datum = gdbm_fetch(dbm_ptr, key_datum);
     if(data_datum.dptr)
     {
       printf("Data retrieved\n");
-      memcpy(&item_retrieved, data_datum.dptr, data_datum.size);
+      memcpy(&item_retrieved, data_datum.dptr, data_datum.dsize);
       printf("Retrieved item - %s %d %s\n",
               item_retrieved.misc_chars,
               item_retrieved.any_integer,
@@ -87,7 +88,7 @@ int main()
       printf("No data found for key %s\n", key_to_use);
     }
 
-    dbm_close(dbm_ptr);
+    gdbm_close(dbm_ptr);
     exit(EXIT_SUCCESS);
   }
 }
