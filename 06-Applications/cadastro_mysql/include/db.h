@@ -1,10 +1,12 @@
 #ifndef _DB_H
 #define _DB_H
 
-#include <people.h>
 
-int people_insertdb(people_t *p);
-int people_delete_db(people_t *p);
-int people_updatedb(people_t *p);
+
+int initdb(const char *hostname, const char *username, const char *password, const char *database);
+int insertdb(char *(*insert)(void *data), void *data);
+int deletedb(char *(*delete)(void *data), void *data);
+int updatedb(char *(*update)(void *data), void *data);
+int closedb(void);
 
 #endif
