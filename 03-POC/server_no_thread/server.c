@@ -7,6 +7,12 @@
 #define MAX 80 
 #define PORT 8080 
 #define SA struct sockaddr 
+
+
+static void turnLeft();
+static void turnRight();
+static void goForward();
+static void stop();
   
 // Function designed for chat between client and server. 
 void func(int sockfd) 
@@ -19,22 +25,28 @@ void func(int sockfd)
   
         // read the message from client and copy it in buffer 
         read(sockfd, buff, sizeof(buff)); 
-        // print buffer which contains the client contents 
-        printf("From client: %s\t To client : ", buff); 
-        bzero(buff, MAX); 
-        n = 0; 
-        // copy server message in the buffer 
-        while ((buff[n++] = getchar()) != '\n') 
-            ; 
-  
-        // and send that buffer to client 
-        write(sockfd, buff, sizeof(buff)); 
   
         // if msg contains "Exit" then server exit and chat ended. 
         if (strncmp("exit", buff, 4) == 0) { 
             printf("Server Exit...\n"); 
             break; 
         } 
+
+        else if(strncmp("left", buff, 4) == 0){
+          turnLeft(); 
+        }
+
+        else if(strncmp("right", buff, 5) == 0){
+          turnRight(); 
+        }
+
+        else if(strncmp("go", buff, 2) == 0){
+          goForward(); 
+        }
+
+        else if(strncmp("stop", buff, 4) == 0){
+          stop(); 
+        }
     } 
 } 
   
@@ -91,3 +103,24 @@ int main()
     // After chatting close the socket 
     close(sockfd); 
 } 
+
+static void turnLeft()
+{
+  printf("Turning left.\n");
+}
+
+static void turnRight()
+{
+  printf("Turning Right.\n");
+}
+
+static void goForward()
+{
+  printf("Going forward.\n");
+}
+
+static void stop()
+{ 
+  printf("Stop.\n");
+}
+  
