@@ -10,8 +10,8 @@ set(VERSION_PATCH 0)
 SET(CMAKE_SYSTEM_NAME Linux)
 
 # Specify the cross compiler
-SET(CMAKE_C_COMPILER   arm-linux-gnueabihf-gcc)
-SET(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
+#SET(CMAKE_C_COMPILER   arm-linux-gnueabihf-gcc)
+#SET(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
