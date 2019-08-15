@@ -1,6 +1,8 @@
+#include <motors.h>
+#include <stdlib.h>
 #include <unistd.h>
-#include <wiringPi.h>
-#include <softPwm.h>
+//#include <wiringPi.h>
+//#include <softPwm.h>
 
 static int ctx_speed = 0;
 static int motors_init();
@@ -11,7 +13,7 @@ int motors_init()
 {
   int ret = -1;
 
-  ret = wiringPiSetup();
+  //ret = wiringPiSetup();
   if(ret == -1){
     return ret;
   }
@@ -23,39 +25,41 @@ int motor_setpower(int motor_id, int power)
   if(power > 1023)
     power = 1023;
   ctx_speed = power;
-  pwmWrite(motor_id, power);
+  //pwmWrite(motor_id, power);
 
   return 0;
 }
 
-int go_forward(int speed)
+
+void *motor_stop(void *args)
 {
-  motor_setpower(MOTOR_LEFT, speed);
-  motor_setpower(MOTOR_RIGHT, speed);
-  return 0;
+  (void)args;
+  //motor_setpower(MOTOR_LEFT, 0);
+  //motor_setpower(MOTOR_RIGHT, 0);
+  printf("Motor stop.\n");
+  return NULL;
 }
 
-int turn_left(void)
+void *motor_turn_left(void *args)
 {
-  motor_setpower(MOTOR_RIGHT, ctx_speed / 3); 
-  return 0;
+  (void)args;
+//  motor_setpower(MOTOR_RIGHT, ctx_speed / 3); 
+  printf("Motor Turning Left.\n");
+  return NULL;
 }
 
-int turn_right(void)
+void *motor_turn_right(void *args)
 {
-  motor_setpower(MOTOR_LEFT, ctx_speed / 3); 
-  return 0;
+  (void)args;
+ // motor_setpower(MOTOR_LEFT, ctx_speed / 3); 
+  printf("Motor Turning Right.\n");
+  return NULL;
 }
 
-int go_stop()
-{
-  motor_setpower(MOTOR_LEFT, 0);
-  motor_setpower(MOTOR_RIGHT, 0);
-  return 0;
-
-}
-
-int main()
-{
-
+void *motor_forward(void *args);
+  int speed = *(*int)args;
+  printf("Motor Forward: %d\n", speed);
+  //motor_setpower(MOTOR_LEFT, speed);
+  //motor_setpower(MOTOR_RIGHT, speed);
+  return NULL;
 }

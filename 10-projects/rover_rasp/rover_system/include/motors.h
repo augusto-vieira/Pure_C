@@ -5,9 +5,9 @@
 #define MOTOR_RIGHT 2
 
 
-int go_forward(int speed);
-int turn_left(void);
-int turn_right(void);
-int go_stop();
+void *motor_stop(void *args);
+void *motor_turn_left(void *args);
+void *motor_turn_right(void *args);
+void *motor_forward(void *args);
 
 #endif 
