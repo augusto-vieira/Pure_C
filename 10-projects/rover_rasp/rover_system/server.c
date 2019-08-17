@@ -4,15 +4,13 @@
 #include <string.h> 
 #include <sys/socket.h> 
 #include <sys/types.h> 
+#include <actions.h>
+
 #define MAX 80 
 #define PORT 8080 
 #define SA struct sockaddr 
 
 
-static void turnLeft();
-static void turnRight();
-static void goForward();
-static void stop();
   
 // Function designed for chat between client and server. 
 void func(int sockfd) 
@@ -21,32 +19,12 @@ void func(int sockfd)
     int n; 
     // infinite loop for chat 
     for (;;) { 
-        bzero(buff, MAX); 
-  
-        // read the message from client and copy it in buffer 
-        read(sockfd, buff, sizeof(buff)); 
-  
-        // if msg contains "Exit" then server exit and chat ended. 
-        if (strncmp("exit", buff, 4) == 0) { 
-            printf("Server Exit...\n"); 
-            break; 
-        } 
+      bzero(buff, MAX); 
 
-        else if(strncmp("left", buff, 4) == 0){
-          turnLeft(); 
-        }
-
-        else if(strncmp("right", buff, 5) == 0){
-          turnRight(); 
-        }
-
-        else if(strncmp("go", buff, 2) == 0){
-          goForward(); 
-        }
-
-        else if(strncmp("stop", buff, 4) == 0){
-          stop(); 
-        }
+      // read the message from client and copy it in buffer 
+      read(sockfd, buff, sizeof(buff)); 
+      action_select(buff, NULL); 
+        
     } 
 } 
   
@@ -105,23 +83,4 @@ int main()
     close(sockfd); 
 } 
 
-static void turnLeft()
-{
-  printf("Turning left.\n");
-}
-
-static void turnRight()
-{
-  printf("Turning Right.\n");
-}
-
-static void goForward()
-{
-  printf("Going forward.\n");
-}
-
-static void stop()
-{ 
-  printf("Stop.\n");
-}
   

@@ -1,4 +1,5 @@
 #include <motors.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 //#include <wiringPi.h>
@@ -56,8 +57,12 @@ void *motor_turn_right(void *args)
   return NULL;
 }
 
-void *motor_forward(void *args);
-  int speed = *(*int)args;
+void *motor_forward(void *args)
+{
+  int *speed = (int *)args;
+  printf("Motor Forward: %d\n");
+  if(speed == NULL)
+    return speed;
   printf("Motor Forward: %d\n", speed);
   //motor_setpower(MOTOR_LEFT, speed);
   //motor_setpower(MOTOR_RIGHT, speed);

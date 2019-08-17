@@ -13,28 +13,32 @@ SET(CMAKE_SYSTEM_NAME Linux)
 #SET(CMAKE_C_COMPILER   arm-linux-gnueabihf-gcc)
 #SET(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
 
-
+set (CMAKE_C_FLAGS "-Wall -std=c99")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_BUILD_TYPE Debug)
 
-#add_library(lib "")
-#
-#target_sources(lib 
-#  PUBLIC
-#  ${CMAKE_CURRENT_LIST_DIR}/lib/src/pqueue.c
-#  ${CMAKE_CURRENT_LIST_DIR}/lib/src/people.c
-#  ${CMAKE_CURRENT_LIST_DIR}/lib/src/data.c
-#  )
-#target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
+add_library(util "")
+
+target_sources(util 
+  PUBLIC
+  ${CMAKE_CURRENT_LIST_DIR}/src/motors.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/actions.c
+  )
+
+target_include_directories(util PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 
 #server 
 add_executable(server "")
-#target_link_libraries(queue_writer PUBLIC lib)
+target_link_libraries(server PUBLIC util)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
 target_sources(server
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/server.c
+  )
+target_include_directories(server 
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/include
   )
 install(TARGETS server DESTINATION bin)
 
