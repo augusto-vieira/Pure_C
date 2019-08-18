@@ -47,6 +47,11 @@ void func(int sockfd)
         else if(strncmp("stop", buff, 4) == 0){
           stop(); 
         }
+        
+        else if(strncmp("quit", buff, 4) == 0){
+          close(sockfd);
+          break;
+        }
     } 
 } 
   
