@@ -10,7 +10,7 @@ int main(int argc, char *arg[])
 
   mysql_init(&myconnection);
 
-  if(mysql_real_connect(&myconnection, "localhost", "cssouza", "$0l1d$2r2",
+  if(mysql_real_connect(&myconnection, "localhost", "cssouza", "senha",
                                 "test", 0, NULL, 0)){
     printf("Connection success\n");
     res = mysql_query(&myconnection, "INSERT INTO children(fname, age) values ('Ann', 3)");

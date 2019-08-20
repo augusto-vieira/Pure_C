@@ -15,7 +15,7 @@ int main(int argc, char *arg[])
     return EXIT_FAILURE;
   }
 
-  conn_ptr = mysql_real_connect(conn_ptr, "localhost", "cssouza", "$0l1d$2r2",
+  conn_ptr = mysql_real_connect(conn_ptr, "localhost", "cssouza", "senha",
                                 "test", 0, NULL, 0);
 
   if(conn_ptr){
