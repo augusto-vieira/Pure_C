@@ -37,3 +37,27 @@ target_include_directories(shm2
   )
 install(TARGETS shm2 DESTINATION bin)
 
+
+#server 
+add_executable(msg1 "")
+target_sources(msg1
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/msg1.c
+  )
+target_include_directories(msg1
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}
+  )
+install(TARGETS msg1 DESTINATION bin)
+
+#client
+add_executable(msg2 "")
+target_sources(msg2
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/msg2.c
+  )
+target_include_directories(msg2
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}
+  )
+install(TARGETS msg2 DESTINATION bin)
