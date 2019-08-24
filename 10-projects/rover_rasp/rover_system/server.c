@@ -2,11 +2,12 @@
 #include <netinet/in.h> 
 #include <stdlib.h> 
 #include <string.h> 
+#include <stdio.h>
 #include <sys/socket.h> 
 #include <sys/types.h> 
-#include <actions.h>
+#include <queue.h>
 
-#define MAX 80 
+#define MAX 4096 
 #define PORT 8080 
 #define SA struct sockaddr 
 
@@ -15,6 +16,7 @@
 // Function designed for chat between client and server. 
 void func(int sockfd) 
 { 
+    queue_st queue;
     char buff[MAX]; 
     int n; 
     // infinite loop for chat 
@@ -23,8 +25,8 @@ void func(int sockfd)
 
       // read the message from client and copy it in buffer 
       read(sockfd, buff, sizeof(buff)); 
-      action_select(buff, NULL); 
-        
+      memcpy(queue.data_buffer, buff, strlen(buff));
+      queue_send(&queue, strlen(queue.data_buffer));
     } 
 } 
   
@@ -34,6 +36,10 @@ int main()
     int sockfd, connfd, len; 
     struct sockaddr_in servaddr, cli; 
   
+    if(queue_init() != 0){
+      fprintf(stderr, "queue init\n");
+      exit(0);
+    }
     // socket create and verification 
     sockfd = socket(AF_INET, SOCK_STREAM, 0); 
     if (sockfd == -1) { 
@@ -80,6 +86,7 @@ int main()
       func(connfd); 
     }  
     // After chatting close the socket 
+    queue_deinit();
     close(sockfd); 
 } 
 

@@ -12,7 +12,7 @@ typedef struct queue_st{
 }queue_st;
 
 int queue_init(void);
-int queue_send(const queue_st *data, const int buffer_size);
+int queue_send(queue_st *data, const int buffer_size);
 int queue_recv(queue_st *data, const int buffer_size);
 int queue_deinit(void);
 #endif

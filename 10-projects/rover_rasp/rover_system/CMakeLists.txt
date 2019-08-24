@@ -28,9 +28,18 @@ target_sources(util
 
 target_include_directories(util PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 
+add_library(utils "")
+
+target_sources(utils
+  PUBLIC
+  ${CMAKE_CURRENT_LIST_DIR}/lib/src/queue.c
+  )
+
+target_include_directories(utils PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
+
 #server 
 add_executable(server "")
-target_link_libraries(server PUBLIC util)
+target_link_libraries(server PUBLIC util utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
 target_sources(server
   PUBLIC 
@@ -39,6 +48,7 @@ target_sources(server
 target_include_directories(server 
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/include
+  ${CMAKE_CURRENT_LIST_DIR}/lib/include
   )
 install(TARGETS server DESTINATION bin)
 
@@ -52,6 +62,19 @@ target_sources(client
   )
 install(TARGETS client DESTINATION bin)
 
+#manager
+add_executable(manager "")
+target_link_libraries(manager PUBLIC utils)
+#target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
+target_sources(manager
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/manager.c
+  )
+target_include_directories(manager
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/lib/include
+  )
+install(TARGETS manager DESTINATION bin)
 #create a .deb file
 set(CPACK_PACKAGE_DESCRIPTION "Rover package")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
