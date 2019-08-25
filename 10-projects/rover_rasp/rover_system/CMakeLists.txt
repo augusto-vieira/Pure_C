@@ -33,6 +33,7 @@ add_library(utils "")
 target_sources(utils
   PUBLIC
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/queue.c
+  ${CMAKE_CURRENT_LIST_DIR}/lib/src/shared_memory.c
   )
 
 target_include_directories(utils PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
@@ -75,6 +76,21 @@ target_include_directories(manager
   ${CMAKE_CURRENT_LIST_DIR}/lib/include
   )
 install(TARGETS manager DESTINATION bin)
+
+#manager
+add_executable(motor_control "")
+target_link_libraries(motor_control PUBLIC utils)
+#target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
+target_sources(motor_control
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/motor_control.c
+  )
+target_include_directories(motor_control
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/lib/include
+  )
+install(TARGETS motor_control DESTINATION bin)
+
 #create a .deb file
 set(CPACK_PACKAGE_DESCRIPTION "Rover package")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
