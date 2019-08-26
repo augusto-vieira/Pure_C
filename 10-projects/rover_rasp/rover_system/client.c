@@ -5,6 +5,7 @@
 #include <stdlib.h> 
 #include <string.h> 
 #include <sys/socket.h> 
+
 #define MAX 4096 
 #define PORT 8080 
 #define SA struct sockaddr 
@@ -34,8 +35,8 @@ int main()
 
     char server_ip[100];
 
-    printf("Enter a server ip: ");
-    gets(server_ip);
+//    printf("Enter a server ip: ");
+ //   gets(server_ip);
     // socket create and varification 
     sockfd = socket(AF_INET, SOCK_STREAM, 0); 
     if (sockfd == -1) { 
@@ -48,7 +49,8 @@ int main()
   
     // assign IP, PORT 
     servaddr.sin_family = AF_INET; 
-    servaddr.sin_addr.s_addr = inet_addr(server_ip); 
+    //servaddr.sin_addr.s_addr = inet_addr(server_ip); 
+    servaddr.sin_addr.s_addr = inet_addr("127.0.0.1"); 
     servaddr.sin_port = htons(PORT); 
   
     // connect the client socket to server socket 

@@ -2,9 +2,8 @@
 #define __QUEUE_H
 
 #define _1K   1024
-#define _4K   ( _1K * 4)
-
-#define DATA_BUFFER_LEN 
+#define _4K   (_1K * 4)
+#define _512  (_1K / 2)
 
 typedef struct queue_st{
   long int queue_type;

@@ -1,12 +1,17 @@
 #ifndef __SHARED_MEMORY_H
 #define __SHARED_MEMORY_H
 
-#define MAX_COMMAND_SIZE      512
+#include <rover_types.h>
 
 typedef struct shared_memory_st{
-  int id;
-  char command[MAX_COMMAND_SIZE];
+  motor_st motors;
+  servo_st servo; 
 }shared_memory_st;
+
+typedef struct generic{
+  long int id;
+  char command[512];
+}generic_st;
 
 int shared_memory_init(void);
 int shared_memory_write(void *buffer, int offset, int size);

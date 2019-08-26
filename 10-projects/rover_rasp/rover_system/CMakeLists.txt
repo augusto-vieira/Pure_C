@@ -74,6 +74,7 @@ target_sources(manager
 target_include_directories(manager
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/lib/include
+  ${CMAKE_CURRENT_LIST_DIR}/include
   )
 install(TARGETS manager DESTINATION bin)
 
