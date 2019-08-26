@@ -9,19 +9,34 @@
 #define MAX 4096 
 #define PORT 8080 
 #define SA struct sockaddr 
+
+typedef struct client_st{
+  int id;
+  char buff[512];
+}client_st;
+
 void func(int sockfd) 
 { 
-    char buff[MAX]; 
+  client_st cl;
+  char server_b[MAX];
+
     int n; 
     for (;;) { 
-        bzero(buff, sizeof(buff)); 
+        bzero(cl.buff, sizeof(cl.buff)); 
+        bzero(server_b, sizeof(server_b)); 
+
+        printf("Enter a id: ");
+        scanf("%d", &cl.id);
+
         printf("Enter the string : "); 
         n = 0; 
-        while ((buff[n++] = getchar()) != '\n') 
+        while ((cl.buff[n++] = getchar()) != '\n') 
             ; 
-        write(sockfd, buff, sizeof(buff)); 
-        bzero(buff, sizeof(buff)); 
-        if ((strncmp(buff, "exit", 4)) == 0) { 
+
+        memcpy(server_b, &cl, sizeof(cl)) ;
+
+        write(sockfd, server_b, sizeof(server_b)); 
+        if ((strncmp(cl.buff, "exit", 4)) == 0) { 
             printf("Client Exit...\n"); 
             break; 
         } 
