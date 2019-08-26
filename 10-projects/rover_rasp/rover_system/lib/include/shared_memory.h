@@ -9,7 +9,7 @@ typedef struct shared_memory_st{
 }shared_memory_st;
 
 typedef struct generic{
-  long int id;
+  int id;
   char command[512];
 }generic_st;
 

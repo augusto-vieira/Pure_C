@@ -25,8 +25,8 @@ void func(int sockfd)
 
       // read the message from client and copy it in buffer 
       read(sockfd, buff, sizeof(buff)); 
-      memcpy(queue.data_buffer, buff, strlen(buff));
-      queue_send(&queue, strlen(queue.data_buffer));
+      memcpy(queue.data_buffer, buff, sizeof(buff));
+      queue_send(&queue, sizeof(queue.data_buffer));
     } 
 } 
   

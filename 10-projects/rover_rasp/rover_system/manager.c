@@ -31,6 +31,7 @@ int main()
     } 
 
     //convert to generic type to analise which id is.
+    memset(&data, 0, sizeof(data));
     memcpy(&data, queue.data_buffer, sizeof(data));
 
     if(manager(data.id, data.command) != 0){

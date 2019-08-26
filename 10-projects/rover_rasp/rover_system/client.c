@@ -27,6 +27,7 @@ void func(int sockfd)
 
         printf("Enter a id: ");
         scanf("%d", &cl.id);
+        getchar();
 
         printf("Enter the string : "); 
         n = 0; 
