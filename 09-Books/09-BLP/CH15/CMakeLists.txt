@@ -36,3 +36,49 @@ target_include_directories(client1
   ${CMAKE_CURRENT_LIST_DIR}
   )
 install(TARGETS client1 DESTINATION bin)
+
+add_executable(server2 "")
+target_sources(server2
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/server2.c
+  )
+target_include_directories(server2
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}
+  )
+install(TARGETS server2 DESTINATION bin)
+
+#client
+add_executable(client2 "")
+target_sources(client2
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/client2.c
+  )
+target_include_directories(client2
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}
+  )
+install(TARGETS client2 DESTINATION bin)
+
+add_executable(getname "")
+target_sources(getname
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/getname.c
+  )
+target_include_directories(getname
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}
+  )
+install(TARGETS getname DESTINATION bin)
+
+add_executable(getdate "")
+target_sources(getdate
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/getdate.c
+  )
+target_include_directories(getdate
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}
+  )
+install(TARGETS getdate DESTINATION bin)
+
