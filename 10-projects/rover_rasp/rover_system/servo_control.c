@@ -9,7 +9,7 @@
 int main()
 {
 
-  motor_st motores;
+  servo_st servo;
 
 
   int ret = shared_memory_init();
@@ -33,15 +33,16 @@ int main()
       printf("Reading share memory.\n");
       sleep(2);
 
-      if(shared_memory_read((void *)&motores, MOTOR_OFFSET, sizeof(motores))){
+      if(shared_memory_read((void *)&servo, SERVO_OFFSET, sizeof(servo))){
         fprintf(stderr, "shared memory read\n");
       }
 
       semaphore_unlock();    
     }
 
-    if(motores.id == 0){
-      printf("%s\n", motores.command);
+    if(servo.id == 1){
+      printf("%s\n", servo.command);
     } 
+
   }
 }

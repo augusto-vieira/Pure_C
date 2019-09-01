@@ -38,7 +38,11 @@ target_sources(utils
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/sema.c
   )
 
-target_include_directories(utils PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
+target_include_directories(utils
+  PUBLIC
+  ${CMAKE_CURRENT_LIST_DIR}/lib/include
+  ${CMAKE_CURRENT_LIST_DIR}/include
+  )
 
 #server 
 add_executable(server "")
@@ -80,7 +84,7 @@ target_include_directories(manager
   )
 install(TARGETS manager DESTINATION bin)
 
-#manager
+#motor_control
 add_executable(motor_control "")
 target_link_libraries(motor_control PUBLIC utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
@@ -94,6 +98,19 @@ target_include_directories(motor_control
   )
 install(TARGETS motor_control DESTINATION bin)
 
+#servo_control
+add_executable(servo_control "")
+target_link_libraries(servo_control PUBLIC utils)
+#target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
+target_sources(servo_control
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/servo_control.c
+  )
+target_include_directories(servo_control
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/lib/include
+  )
+install(TARGETS servo_control DESTINATION bin)
 #create a .deb file
 set(CPACK_PACKAGE_DESCRIPTION "Rover package")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")

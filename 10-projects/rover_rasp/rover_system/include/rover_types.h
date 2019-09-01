@@ -11,4 +11,7 @@ typedef struct servo{
   char command[512];
 }servo_st;
 
+#define MOTOR_OFFSET      0
+#define SERVO_OFFSET      (MOTOR_OFFSET + sizeof(motor_st))
+
 #endif
