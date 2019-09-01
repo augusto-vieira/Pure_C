@@ -30,10 +30,12 @@ target_include_directories(util PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 
 add_library(utils "")
 
+target_link_libraries(utils PUBLIC pthread rt)
 target_sources(utils
   PUBLIC
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/queue.c
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/shared_memory.c
+  ${CMAKE_CURRENT_LIST_DIR}/lib/src/sema.c
   )
 
 target_include_directories(utils PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)

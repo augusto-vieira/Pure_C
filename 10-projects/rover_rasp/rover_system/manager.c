@@ -4,6 +4,7 @@
 #include <manager.h>
 #include <queue.h>
 #include <shared_memory.h>
+#include <sema.h>
 
 int main()
 {
@@ -17,6 +18,13 @@ int main()
     fprintf(stderr, "queue init\n");
     exit(EXIT_FAILURE);
   }
+  
+  ret = semaphore_init();
+
+  if(ret != 0){
+    fprintf(stderr, "sema init\n");
+    exit(EXIT_FAILURE);
+  }
 
   ret = shared_memory_init();
   if(ret != 0){
@@ -26,18 +34,28 @@ int main()
 
   while(1)
   {
-    if(queue_recv(&queue, sizeof(queue.data_buffer)) != 0){
-      fprintf(stderr, "queue recv error\n");
-    } 
+//    if(queue_recv(&queue, sizeof(queue.data_buffer)) != 0){
+//      fprintf(stderr, "queue recv error\n");
+//    } 
 
     //convert to generic type to analise which id is.
     memset(&data, 0, sizeof(data));
     memcpy(&data, queue.data_buffer, sizeof(data));
 
+    data.id = 0;
+    strcpy(data.command, "go foward");
+
     if(manager(data.id, data.command) != 0){
       fprintf(stderr, "Error type no exist\n");
     }
 
+    //convert to generic type to analise which id is.
+    data.id = 1;
+    strcpy(data.command, "turn left 10");
+
+    if(manager(data.id, data.command) != 0){
+      fprintf(stderr, "Error type no exist\n");
+    }
     memset(queue.data_buffer, 0, sizeof(queue.data_buffer));
   }
 
@@ -69,7 +87,16 @@ int manager(int id, const char *command)
   data.id = id;
   memcpy(data.command, command, sizeof(data.command));
 
-  if(shared_memory_write((void *)&data, offset, sizeof(data)) != 0){
-    fprintf(stderr, "shared_memory_write error\n");
+  if(!semaphore_lock()){
+
+    printf("Writing on share memory.\n");
+    sleep(1);
+
+    if(shared_memory_write((void *)&data, offset, sizeof(data)) != 0){
+      fprintf(stderr, "shared_memory_write error\n");
+    }
+
+    semaphore_unlock();
+  
   }
 }
