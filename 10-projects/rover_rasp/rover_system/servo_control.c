@@ -23,15 +23,10 @@ int main()
     fprintf(stderr, "semaphore init error\n");
     return EXIT_FAILURE;
   }
-  
-
 
   while(1)
   {
     if(!semaphore_lock()){
-
-      printf("Reading share memory.\n");
-      sleep(2);
 
       if(shared_memory_read((void *)&servo, SERVO_OFFSET, sizeof(servo))){
         fprintf(stderr, "shared memory read\n");

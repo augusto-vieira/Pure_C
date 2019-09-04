@@ -79,9 +79,6 @@ int manager(int id, const char *command)
 
   if(!semaphore_lock()){
 
-    printf("Writing on share memory.\n");
-    sleep(1);
-
     if(shared_memory_write((void *)&data, offset, sizeof(data)) != 0){
       fprintf(stderr, "shared_memory_write error\n");
     }

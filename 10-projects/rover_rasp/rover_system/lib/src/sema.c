@@ -33,8 +33,6 @@ int semaphore_init(void)
   int ret;
   if(sem_ctx.init == 1)
     return 0;
-  //ret = sem_init(&sem_ctx.mutex, 1, 1);
-  //sem_ctx.mutex = sem_open(sem_name, O_CREAT, 0660, 1);
   sem_ctx.sem_id = semget(KEY, 1, 0666 | IPC_CREAT);
   if(sem_ctx.sem_id >= 0){
     sem_ctx.init = 1;
@@ -72,8 +70,6 @@ int semaphore_delete(void)
   if(sem_ctx.init == -1)
     return -1;
 
-  //ret = sem_destroy(&sem_ctx.mutex);
-  //ret = sem_unlink(sem_name);
   ret = semctl(sem_ctx.sem_id, 0, IPC_RMID, 0);
   if(ret < 0){
     return -1;

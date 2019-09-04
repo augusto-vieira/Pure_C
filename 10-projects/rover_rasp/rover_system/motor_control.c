@@ -30,8 +30,6 @@ int main()
   {
     if(!semaphore_lock()){
 
-      printf("Reading share memory.\n");
-      sleep(2);
 
       if(shared_memory_read((void *)&motores, MOTOR_OFFSET, sizeof(motores))){
         fprintf(stderr, "shared memory read\n");
