@@ -9,10 +9,11 @@
 #include <signal.h>
 
 static void signal_handler(int sig){
-  if(sig == SIGKILL){
+  if(sig == SIGTERM){
     queue_deinit();
     semaphore_delete();
     shared_memory_denit();
+    exit(SIGTERM);
   }
 }
 
@@ -22,7 +23,7 @@ int main()
   queue_st queue;
   generic_st data;
 
-  signal(SIGKILL, signal_handler);
+  signal(SIGTERM, signal_handler);
 
   ret = queue_init();
 
