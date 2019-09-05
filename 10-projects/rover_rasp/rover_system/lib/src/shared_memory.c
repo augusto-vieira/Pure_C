@@ -19,13 +19,11 @@ int shared_memory_init(void)
 {
   shared_memory_ctx.shmid = shmget((key_t)1234, sizeof(shared_memory_st), 0666 | IPC_CREAT);
   if(shared_memory_ctx.shmid == -1){
-    fprintf(stderr, "shared_memory_init error\n");
     return (EXIT_FAILURE);
   }
 
   shared_memory_ctx.share_mem = shmat(shared_memory_ctx.shmid, (void *)0, 0);
   if(shared_memory_ctx.share_mem == (void *)-1){
-    fprintf(stderr, "share memory shmat error\n");
     return EXIT_FAILURE;
   }
   return EXIT_SUCCESS;
@@ -34,7 +32,6 @@ int shared_memory_init(void)
 int shared_memory_write(void *buffer, int offset, int size)
 {
   if(shared_memory_ctx.shmid == -1){
-    fprintf(stderr, "Shared Memory not initialize\n");
     return EXIT_FAILURE; 
   }
 
@@ -54,7 +51,6 @@ int shared_memory_write(void *buffer, int offset, int size)
 int shared_memory_read(void *buffer, int offset, int size)
 {
   if(shared_memory_ctx.shmid == -1){
-    fprintf(stderr, "Shared Memory not initialize\n");
     return EXIT_FAILURE; 
   }
 
@@ -72,13 +68,11 @@ int shared_memory_denit(void)
 {
   int ret = -1;
   if(shared_memory_ctx.shmid == -1){
-    fprintf(stderr, "Shared Memory not initialize\n");
     return EXIT_FAILURE; 
   }
 
   ret = shmctl(shared_memory_ctx.shmid, IPC_RMID, 0);
   if(ret == -1){
-    fprintf(stderr, "shared_memory_deinit\n");
     return EXIT_FAILURE;
   }
   shared_memory_ctx.shmid = -1;
