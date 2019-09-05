@@ -13,7 +13,7 @@ SET(CMAKE_SYSTEM_NAME Linux)
 #SET(CMAKE_C_COMPILER   arm-linux-gnueabihf-gcc)
 #SET(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
 
-set (CMAKE_C_FLAGS "-Wall -std=c99")
+set (CMAKE_C_FLAGS "-D_GNU_SOURCE -Wall -std=c99")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_BUILD_TYPE Debug)

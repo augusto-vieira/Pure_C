@@ -9,6 +9,7 @@
 int main()
 {
 
+  int update = 0;
   motor_st motores;
 
 
@@ -35,11 +36,22 @@ int main()
         fprintf(stderr, "shared memory read\n");
       }
 
+      update = motores.status;
+      motores.status = 0;
+
+      if(shared_memory_write((void *)&motores, MOTOR_OFFSET, sizeof(int) * 2) != 0){
+        fprintf(stderr, "shared_memory_write error\n");
+      }
+
       semaphore_unlock();    
     }
 
-    if(motores.id == 0){
+    if(update == 1){
       printf("%s\n", motores.command);
+      update = 0;
     } 
+    else{
+      usleep(1000);
+    }
   }
 }

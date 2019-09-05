@@ -9,6 +9,7 @@
 int main()
 {
 
+  int update = 0;
   servo_st servo;
 
 
@@ -32,12 +33,23 @@ int main()
         fprintf(stderr, "shared memory read\n");
       }
 
+      update = servo.status;
+      servo.status = 0;
+
+      if(shared_memory_write((void *)&servo, SERVO_OFFSET, sizeof(int) * 2)){
+        fprintf(stderr, "shared memory read\n");
+      }
+
       semaphore_unlock();    
     }
 
-    if(servo.id == 1){
+    if(update == 1){
       printf("%s\n", servo.command);
+      update = 0;
     } 
+    else{
+      usleep(1000);
+    }
 
   }
 }

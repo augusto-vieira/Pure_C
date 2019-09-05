@@ -6,12 +6,23 @@
 #include <shared_memory.h>
 #include <rover_types.h>
 #include <sema.h>
+#include <signal.h>
+
+static void signal_handler(int sig){
+  if(sig == SIGKILL){
+    queue_deinit();
+    semaphore_delete();
+    shared_memory_denit();
+  }
+}
 
 int main()
 {
   int ret = -1;
   queue_st queue;
   generic_st data;
+
+  signal(SIGKILL, signal_handler);
 
   ret = queue_init();
 
@@ -55,6 +66,7 @@ int manager(int id, const char *command)
 {
   int offset;
   int ret = 0;
+  int status = 0;
   generic_st data;
 
   switch(id){
@@ -75,6 +87,7 @@ int manager(int id, const char *command)
   }
 
   data.id = id;
+  data.status = 1;
   memcpy(data.command, command, sizeof(data.command));
 
   if(!semaphore_lock()){

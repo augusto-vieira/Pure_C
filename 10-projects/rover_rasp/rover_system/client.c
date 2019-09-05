@@ -12,6 +12,7 @@
 
 typedef struct client_st{
   int id;
+  int dummy;
   char buff[512];
 }client_st;
 

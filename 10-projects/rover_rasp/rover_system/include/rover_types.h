@@ -3,11 +3,13 @@
 
 typedef struct motor{
   int id;
+  int status;
   char command[512];
 }motor_st;
 
 typedef struct servo{
   int id;
+  int status;
   char command[512];
 }servo_st;
 
