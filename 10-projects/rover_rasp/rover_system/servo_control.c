@@ -5,6 +5,9 @@
 #include <shared_memory.h>
 #include <sema.h>
 #include <rover_types.h>
+#include <log.h>
+
+#define ROVER_SERVO   "ROVER_SERVO"
 
 int main()
 {
@@ -15,13 +18,13 @@ int main()
 
   int ret = shared_memory_init();
   if(ret != 0){
-    fprintf(stderr, "Shared memory error\n");
+    log(ROVER_SERVO, "Shared Memory Init Error.");
     return EXIT_FAILURE;
   }
 
   ret = semaphore_init();
   if(ret != 0){
-    fprintf(stderr, "semaphore init error\n");
+    log(ROVER_SERVO, "Semaphore Init Error.");
     return EXIT_FAILURE;
   }
 
@@ -30,21 +33,21 @@ int main()
     if(!semaphore_lock()){
 
       if(shared_memory_read((void *)&servo, SERVO_OFFSET, sizeof(servo))){
-        fprintf(stderr, "shared memory read\n");
+        log(ROVER_SERVO, "Shared Memory Read Error.");
       }
 
       update = servo.status;
       servo.status = 0;
 
       if(shared_memory_write((void *)&servo, SERVO_OFFSET, sizeof(int) * 2)){
-        fprintf(stderr, "shared memory read\n");
+        log(ROVER_SERVO, "Shared Memory Write Error.");
       }
 
       semaphore_unlock();    
     }
 
     if(update == 1){
-      printf("%s\n", servo.command);
+      log(ROVER_SERVO, servo.command);
       update = 0;
     } 
     else{

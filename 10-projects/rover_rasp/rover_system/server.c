@@ -6,12 +6,13 @@
 #include <sys/socket.h> 
 #include <sys/types.h> 
 #include <queue.h>
+#include <log.h>
 
 #define MAX 4096 
 #define PORT 8080 
 #define SA struct sockaddr 
 
-
+#define ROVER_SERVER  "ROVER_SERVER"
   
 // Function designed for chat between client and server. 
 void func(int sockfd) 
@@ -37,17 +38,18 @@ int main()
     struct sockaddr_in servaddr, cli; 
   
     if(queue_init() != 0){
-      fprintf(stderr, "queue init\n");
-      exit(0);
+      log(ROVER_SERVER, "Queue init failed");
+      exit(1);
     }
     // socket create and verification 
     sockfd = socket(AF_INET, SOCK_STREAM, 0); 
     if (sockfd == -1) { 
-        printf("socket creation failed...\n"); 
-        exit(0); 
+      log(ROVER_SERVER, "Socket creation failed.");
+      exit(1); 
     } 
-    else
-        printf("Socket successfully created..\n"); 
+    else{
+      log(ROVER_SERVER, "Socket successfully created");
+    }
     bzero(&servaddr, sizeof(servaddr)); 
   
     // assign IP, PORT 
@@ -57,30 +59,34 @@ int main()
   
     // Binding newly created socket to given IP and verification 
     if ((bind(sockfd, (SA*)&servaddr, sizeof(servaddr))) != 0) { 
-        printf("socket bind failed...\n"); 
-        exit(0); 
+      log(ROVER_SERVER, "Bind failed.");
+      exit(1); 
     } 
-    else
-        printf("Socket successfully binded..\n"); 
+    else{
+      log(ROVER_SERVER, "Server successfully binded.");
+    }
+
     while(1)
     {  
       // Now server is ready to listen and verification 
       if ((listen(sockfd, 1)) != 0) { 
-          printf("Listen failed...\n"); 
-          exit(0); 
+      log(ROVER_SERVER, "Listen failed.");
+        exit(0); 
       } 
-      else
-          printf("Server listening..\n"); 
+      else{
+        log(ROVER_SERVER, "Server listening.");
+      }
       len = sizeof(cli); 
     
       // Accept the data packet from client and verification 
       connfd = accept(sockfd, (SA*)&cli, &len); 
       if (connfd < 0) { 
-          printf("server acccept failed...\n"); 
-          exit(0); 
+        log(ROVER_SERVER, "Server accept failed.");
+        exit(1); 
       } 
-      else
-          printf("server acccept the client...\n"); 
+      else{
+        log(ROVER_SERVER, "Server accept client.");
+      }
     
       // Function for chatting between client and server 
       func(connfd); 
