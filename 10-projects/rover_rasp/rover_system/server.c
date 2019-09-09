@@ -13,21 +13,48 @@
 #define SA struct sockaddr 
 
 #define ROVER_SERVER  "ROVER_SERVER"
+
+typedef struct temp
+{
+  int id;
+  int status;
+  char data[512];
+}temp_t;
   
 // Function designed for chat between client and server. 
 void func(int sockfd) 
 { 
+    temp_t t;
     queue_st queue;
     char buff[MAX]; 
-    int n; 
+    int ret; 
     // infinite loop for chat 
+
     for (;;) { 
       bzero(buff, MAX); 
 
       // read the message from client and copy it in buffer 
-      read(sockfd, buff, sizeof(buff)); 
-      memcpy(queue.data_buffer, buff, sizeof(buff));
-      queue_send(&queue, sizeof(queue.data_buffer));
+      ret = read(sockfd, buff, sizeof(buff)); 
+      if(ret >= 0){
+
+        memcpy(&t, buff, sizeof(t));
+        if(strncmp(t.data, "quit", 4) == 0){
+          close(sockfd);
+          return ;
+        }
+
+        if(strlen(t.data) <= 0){
+          continue;
+        }
+
+        log(ROVER_SERVER, t.data);
+
+        memcpy(queue.data_buffer, buff, sizeof(buff));
+        ret = queue_send(&queue, sizeof(queue.data_buffer));
+        if(ret != 0){
+          log(ROVER_SERVER, "Error Queue Send.");
+        }
+      }
     } 
 } 
   
@@ -36,7 +63,7 @@ int main()
 { 
     int sockfd, connfd, len; 
     struct sockaddr_in servaddr, cli; 
-  
+
     if(queue_init() != 0){
       log(ROVER_SERVER, "Queue init failed");
       exit(1);
@@ -71,7 +98,7 @@ int main()
       // Now server is ready to listen and verification 
       if ((listen(sockfd, 1)) != 0) { 
       log(ROVER_SERVER, "Listen failed.");
-        exit(0); 
+        exit(1); 
       } 
       else{
         log(ROVER_SERVER, "Server listening.");
@@ -90,6 +117,7 @@ int main()
     
       // Function for chatting between client and server 
       func(connfd); 
+      log(ROVER_SERVER, "Client Disconnected");
     }  
     // After chatting close the socket 
     queue_deinit();
