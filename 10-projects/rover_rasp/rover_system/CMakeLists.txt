@@ -37,6 +37,7 @@ target_sources(utils
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/shared_memory.c
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/sema.c
   ${CMAKE_CURRENT_LIST_DIR}/lib/src/log.c
+  ${CMAKE_CURRENT_LIST_DIR}/lib/src/file.c
   )
 
 target_include_directories(utils
