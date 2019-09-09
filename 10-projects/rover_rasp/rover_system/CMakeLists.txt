@@ -115,12 +115,17 @@ install(TARGETS servo_control DESTINATION bin)
 
 #rover_launch
 add_executable(rover_launch "")
+target_link_libraries(rover_launch PUBLIC utils)
 target_sources(rover_launch
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/rover_launch.c
   )
+target_include_directories(rover_launch
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/lib/include
+  )
+install(TARGETS rover_launch DESTINATION bin)
 
-install(TARGETS servo_control DESTINATION bin)
 #create a .deb file
 set(CPACK_PACKAGE_DESCRIPTION "Rover package")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
