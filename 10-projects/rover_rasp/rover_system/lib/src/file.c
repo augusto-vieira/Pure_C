@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <file.h>
 
-int readfile(const char *filename, file_t *file, int n_items)
+int readfile(const char *filename, file_t *file, int *n_items)
 {
   FILE *fd = NULL;
   char line[LINE_LEN];
@@ -20,13 +20,15 @@ int readfile(const char *filename, file_t *file, int n_items)
     return EXIT_FAILURE;
   }
 
-  while(fgets(line, LINE_LEN, fd) != NULL && items < n_items)
+  while(fgets(line, LINE_LEN, fd) != NULL && items < *n_items)
   {
     file_t t;
     sscanf(line, "%d\t%s\n", &t.pid, t.name);
     memcpy(&file[items], &t, sizeof(file_t));
     items++;
   }
+
+  *n_items = items;
 
   fclose(fd);
 

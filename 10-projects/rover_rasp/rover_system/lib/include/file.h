@@ -9,7 +9,7 @@ typedef struct file
   char name[30];
 }file_t;
 
-int readfile(const char *filename, file_t *file, int n_items);
+int readfile(const char *filename, file_t *file, int *n_items);
 int writefile(const char *filename, file_t *file, int n_items);
 
 #endif
