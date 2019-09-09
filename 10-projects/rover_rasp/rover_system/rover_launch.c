@@ -3,6 +3,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <signal.h>
+#include <log.h>
+
+#define ROVER_LAUNCH "ROVER_LAUNCH"
 
 typedef struct process_table{
   pid_t process_id;
@@ -19,7 +22,7 @@ process_table_t tasks[] =
 
 static int process_amount = sizeof(tasks)/sizeof(tasks[0]);
 
-static void init_fail(process_table_t *process, int process_amount);
+static void init_fail(const process_table_t *process, int process_amount);
 
 int main()
 {
@@ -27,7 +30,9 @@ int main()
   for(int i = 0; i < (process_amount); i++){
     tasks[i].process_id = fork();
     if(tasks[i].process_id == 0){
-      printf("launching %s\n", tasks[i].task_name);
+      char buffer[128] = {0};
+      snprintf(buffer, sizeof(buffer), "%s pid[%d]", tasks[i].task_name, getpid());
+      log(ROVER_LAUNCH, buffer);
       execv(tasks[i].task_name, NULL);
     }
     else if(tasks[i].process_id == -1){
@@ -36,9 +41,10 @@ int main()
       continue;
     }
   }
+  exit(0);
 }
 
-static void init_fail(process_table_t *process, int process_amount)
+static void init_fail(const process_table_t *process, int process_amount)
 {
   if(!process){
   
