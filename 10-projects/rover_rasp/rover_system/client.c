@@ -5,6 +5,7 @@
 #include <stdlib.h> 
 #include <string.h> 
 #include <sys/socket.h> 
+#include <signal.h>
 
 #define MAX 4096 
 #define PORT 8080 
@@ -15,6 +16,11 @@ typedef struct client_st{
   int dummy;
   char buff[512];
 }client_st;
+
+void signal_handler(int sig)
+{
+  
+}
 
 void func(int sockfd) 
 { 
@@ -37,8 +43,11 @@ void func(int sockfd)
 
         memcpy(server_b, &cl, sizeof(cl)) ;
 
+        if(strlen(cl.buff) <= 0)
+          continue;
+
         write(sockfd, server_b, sizeof(server_b)); 
-        if ((strncmp(cl.buff, "exit", 4)) == 0) { 
+        if ((strncmp(cl.buff, "quit", 4)) == 0) { 
             printf("Client Exit...\n"); 
             break; 
         } 
@@ -52,9 +61,8 @@ int main()
 
     char server_ip[100];
 
-//    printf("Enter a server ip: ");
- //   gets(server_ip);
-    // socket create and varification 
+    signal(SIGINT, signal_handler);
+
     sockfd = socket(AF_INET, SOCK_STREAM, 0); 
     if (sockfd == -1) { 
         printf("socket creation failed...\n"); 
