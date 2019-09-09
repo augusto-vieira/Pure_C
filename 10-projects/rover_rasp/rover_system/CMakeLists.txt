@@ -127,6 +127,19 @@ target_include_directories(rover_launch
   )
 install(TARGETS rover_launch DESTINATION bin)
 
+#rover_unlaunch
+add_executable(rover_unlaunch "")
+target_link_libraries(rover_unlaunch PUBLIC utils)
+target_sources(rover_unlaunch
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/rover_unlaunch.c
+  )
+target_include_directories(rover_unlaunch
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/lib/include
+  )
+install(TARGETS rover_unlaunch DESTINATION bin)
+
 #create a .deb file
 set(CPACK_PACKAGE_DESCRIPTION "Rover package")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
