@@ -46,80 +46,80 @@ target_include_directories(utils
   ${CMAKE_CURRENT_LIST_DIR}/include
   )
 
-#server 
-add_executable(server "")
-target_link_libraries(server PUBLIC util utils)
+#rover_server 
+add_executable(rover_server "")
+target_link_libraries(rover_server PUBLIC util utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
-target_sources(server
+target_sources(rover_server
   PUBLIC 
-  ${CMAKE_CURRENT_LIST_DIR}/server.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/rover_server.c
   )
-target_include_directories(server 
+target_include_directories(rover_server 
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/include
   ${CMAKE_CURRENT_LIST_DIR}/lib/include
   )
-install(TARGETS server DESTINATION bin)
+install(TARGETS rover_server DESTINATION bin)
 
-#client
-add_executable(client "")
+#rover_client
+add_executable(rover_client "")
 #target_link_libraries(client PUBLIC lib)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
-target_sources(client
+target_sources(rover_client
   PUBLIC 
-  ${CMAKE_CURRENT_LIST_DIR}/client.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/rover_client.c
   )
-install(TARGETS client DESTINATION bin)
+install(TARGETS rover_client DESTINATION bin)
 
-#manager
-add_executable(manager "")
-target_link_libraries(manager PUBLIC utils)
+#rover_manager
+add_executable(rover_manager "")
+target_link_libraries(rover_manager PUBLIC utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
-target_sources(manager
+target_sources(rover_manager
   PUBLIC 
-  ${CMAKE_CURRENT_LIST_DIR}/manager.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/rover_manager.c
   )
-target_include_directories(manager
+target_include_directories(rover_manager
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/lib/include
   ${CMAKE_CURRENT_LIST_DIR}/include
   )
-install(TARGETS manager DESTINATION bin)
+install(TARGETS rover_manager DESTINATION bin)
 
-#motor_control
-add_executable(motor_control "")
-target_link_libraries(motor_control PUBLIC utils)
+#rover_motor_control
+add_executable(rover_motor_control "")
+target_link_libraries(rover_motor_control PUBLIC utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
-target_sources(motor_control
+target_sources(rover_motor_control
   PUBLIC 
-  ${CMAKE_CURRENT_LIST_DIR}/motor_control.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/rover_motor_control.c
   )
-target_include_directories(motor_control
+target_include_directories(rover_motor_control
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/lib/include
   )
-install(TARGETS motor_control DESTINATION bin)
+install(TARGETS rover_motor_control DESTINATION bin)
 
-#servo_control
-add_executable(servo_control "")
-target_link_libraries(servo_control PUBLIC utils)
+#rover_servo_control
+add_executable(rover_servo_control "")
+target_link_libraries(rover_servo_control PUBLIC utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
-target_sources(servo_control
+target_sources(rover_servo_control
   PUBLIC 
-  ${CMAKE_CURRENT_LIST_DIR}/servo_control.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/rover_servo_control.c
   )
-target_include_directories(servo_control
+target_include_directories(rover_servo_control
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/lib/include
   )
-install(TARGETS servo_control DESTINATION bin)
+install(TARGETS rover_servo_control DESTINATION bin)
 
 #rover_launch
 add_executable(rover_launch "")
 target_link_libraries(rover_launch PUBLIC utils)
 target_sources(rover_launch
   PUBLIC 
-  ${CMAKE_CURRENT_LIST_DIR}/rover_launch.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/rover_launch.c
   )
 target_include_directories(rover_launch
   PUBLIC 
@@ -132,7 +132,7 @@ add_executable(rover_unlaunch "")
 target_link_libraries(rover_unlaunch PUBLIC utils)
 target_sources(rover_unlaunch
   PUBLIC 
-  ${CMAKE_CURRENT_LIST_DIR}/rover_unlaunch.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/rover_unlaunch.c
   )
 target_include_directories(rover_unlaunch
   PUBLIC 
