@@ -7,6 +7,7 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <protocol.h>
+#include <string.h>
 
 #define PORT 8080
 #define MAXLINE 1024
@@ -38,8 +39,14 @@ int main()
 
   int n, len;
 
+  prot.type = TYPE_DATA;
+  prot.module = MODULE_2;
+  strcpy(prot.payload, "0123456789ABCDEFGHIJKLMNOPQRSTUVXZ"); 
+  prot.size = strlen(prot.payload);
+  prot.checksum = 0xFFFF;
+
   len = sizeof(servaddr);
-  sendto(sockfd, (const char *)hello, strlen(hello), MSG_CONFIRM, (const struct sockaddr *)&servaddr, len);
+  sendto(sockfd, (const char *)&prot, sizeof(prot), MSG_CONFIRM, (const struct sockaddr *)&servaddr, len);
   printf("Hello message sent.\n");
 
   n = recvfrom(sockfd, (char *)buffer, MAXLINE, MSG_WAITALL, (struct sockaddr *)&servaddr, &len);
