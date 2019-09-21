@@ -18,6 +18,18 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_BUILD_TYPE Debug)
 
+function(add_test_unit BIN_NAME BIN SOURCE)
+  add_executable(${BIN} ${SOURCE})
+  set_target_properties(${BIN}
+        PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/tests
+    )
+    add_test(NAME ${BIN_NAME} COMMAND ${BIN})
+endfunction()
+
+#------------------------------------------------------------------------------------------------------
+#lib util
+#------------------------------------------------------------------------------------------------------
 add_library(util "")
 
 target_sources(util 
@@ -28,6 +40,9 @@ target_sources(util
 
 target_include_directories(util PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 
+#------------------------------------------------------------------------------------------------------
+#lib utils
+#------------------------------------------------------------------------------------------------------
 add_library(utils "")
 
 target_link_libraries(utils PUBLIC pthread rt)
@@ -46,7 +61,26 @@ target_include_directories(utils
   ${CMAKE_CURRENT_LIST_DIR}/include
   )
 
+#------------------------------------------------------------------------------------------------------
+#lib drivers
+#------------------------------------------------------------------------------------------------------
+add_library(drivers "")
+target_link_libraries(drivers PUBLIC wiringPi)
+target_sources(utils 
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/driver/src/hc_sr04.c
+  ${CMAKE_CURRENT_LIST_DIR}/driver/src/motors.c
+  ${CMAKE_CURRENT_LIST_DIR}/driver/src/servo.c
+  )
+
+target_include_directories(drivers 
+  PUBLIC 
+  ${CMAKE_CURRENT_LIST_DIR}/driver/include
+  )
+
+#------------------------------------------------------------------------------------------------------
 #rover_server 
+#------------------------------------------------------------------------------------------------------
 add_executable(rover_server "")
 target_link_libraries(rover_server PUBLIC util utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
@@ -61,7 +95,9 @@ target_include_directories(rover_server
   )
 install(TARGETS rover_server DESTINATION bin)
 
+#------------------------------------------------------------------------------------------------------
 #rover_client
+#------------------------------------------------------------------------------------------------------
 add_executable(rover_client "")
 #target_link_libraries(client PUBLIC lib)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
@@ -71,7 +107,9 @@ target_sources(rover_client
   )
 install(TARGETS rover_client DESTINATION bin)
 
+#------------------------------------------------------------------------------------------------------
 #rover_manager
+#------------------------------------------------------------------------------------------------------
 add_executable(rover_manager "")
 target_link_libraries(rover_manager PUBLIC utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
@@ -86,7 +124,9 @@ target_include_directories(rover_manager
   )
 install(TARGETS rover_manager DESTINATION bin)
 
+#------------------------------------------------------------------------------------------------------
 #rover_motor_control
+#------------------------------------------------------------------------------------------------------
 add_executable(rover_motor_control "")
 target_link_libraries(rover_motor_control PUBLIC utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
@@ -100,7 +140,9 @@ target_include_directories(rover_motor_control
   )
 install(TARGETS rover_motor_control DESTINATION bin)
 
+#------------------------------------------------------------------------------------------------------
 #rover_servo_control
+#------------------------------------------------------------------------------------------------------
 add_executable(rover_servo_control "")
 target_link_libraries(rover_servo_control PUBLIC utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
@@ -114,7 +156,9 @@ target_include_directories(rover_servo_control
   )
 install(TARGETS rover_servo_control DESTINATION bin)
 
+#------------------------------------------------------------------------------------------------------
 #rover_launch
+#------------------------------------------------------------------------------------------------------
 add_executable(rover_launch "")
 target_link_libraries(rover_launch PUBLIC utils)
 target_sources(rover_launch
@@ -127,7 +171,9 @@ target_include_directories(rover_launch
   )
 install(TARGETS rover_launch DESTINATION bin)
 
+#------------------------------------------------------------------------------------------------------
 #rover_unlaunch
+#------------------------------------------------------------------------------------------------------
 add_executable(rover_unlaunch "")
 target_link_libraries(rover_unlaunch PUBLIC utils)
 target_sources(rover_unlaunch
@@ -140,7 +186,21 @@ target_include_directories(rover_unlaunch
   )
 install(TARGETS rover_unlaunch DESTINATION bin)
 
+#------------------------------------------------------------------------------------------------------
+#Tests
+#------------------------------------------------------------------------------------------------------
+add_test_unit(servo test_servo test/test_servo.c)
+target_link_libraries(test_servo PUBLIC drivers)
+
+add_test_unit(motors test_motors test/test_motors.c)
+target_link_libraries(test_motors PUBLIC drivers)
+
+add_test_unit(ultrasonic test_ultrasonic test/test_ultrasonic.c)
+target_link_libraries(test_ultrasonic PUBLIC drivers)
+
+#------------------------------------------------------------------------------------------------------
 #create a .deb file
+#------------------------------------------------------------------------------------------------------
 set(CPACK_PACKAGE_DESCRIPTION "Rover package")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${VERSION_MINOR}")
