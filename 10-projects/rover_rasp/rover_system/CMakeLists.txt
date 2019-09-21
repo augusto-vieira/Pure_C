@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.9.0)
+cmake_minimum_required(VERSION 3.7.0)
 
 project(rasp_rover)
 
@@ -30,18 +30,6 @@ endfunction()
 enable_testing()
 
 #------------------------------------------------------------------------------------------------------
-#lib util
-#------------------------------------------------------------------------------------------------------
-add_library(util "")
-
-target_sources(util 
-  PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/src/actions.c
-  )
-
-target_include_directories(util PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
-
-#------------------------------------------------------------------------------------------------------
 #lib utils
 #------------------------------------------------------------------------------------------------------
 add_library(utils "")
@@ -67,7 +55,7 @@ target_include_directories(utils
 #------------------------------------------------------------------------------------------------------
 add_library(drivers "")
 target_link_libraries(drivers PUBLIC wiringPi)
-target_sources(utils 
+target_sources(drivers 
   PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}/driver/src/hc_sr04.c
   ${CMAKE_CURRENT_LIST_DIR}/driver/src/motors.c
@@ -141,9 +129,7 @@ target_include_directories(rover_motor_control
   )
 install(TARGETS rover_motor_control DESTINATION bin)
 
-#------------------------------------------------------------------------------------------------------
 #rover_servo_control
-#------------------------------------------------------------------------------------------------------
 add_executable(rover_servo_control "")
 target_link_libraries(rover_servo_control PUBLIC utils)
 #target_include_directories(lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/lib/include)
@@ -157,9 +143,7 @@ target_include_directories(rover_servo_control
   )
 install(TARGETS rover_servo_control DESTINATION bin)
 
-#------------------------------------------------------------------------------------------------------
 #rover_launch
-#------------------------------------------------------------------------------------------------------
 add_executable(rover_launch "")
 target_link_libraries(rover_launch PUBLIC utils)
 target_sources(rover_launch

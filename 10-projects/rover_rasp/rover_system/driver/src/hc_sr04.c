@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <hc_sr04.h>
 #include <wiringPi.h>
 
 int HC_SR04_init(void)

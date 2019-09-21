@@ -6,7 +6,7 @@ int SERVO_init(void)
 {
 
   int ret = -1;
-  ret = wiringPiSetupGPIO();
+  ret = wiringPiSetupGpio();
   if(ret){
     return EXIT_FAILURE;
   }
@@ -20,5 +20,6 @@ int SERVO_init(void)
 int SERVO_setAngle(int angle)
 {
   pwmWrite(SERVO_PIN, angle); 
+  usleep(10000);
   return EXIT_SUCCESS;
 }
