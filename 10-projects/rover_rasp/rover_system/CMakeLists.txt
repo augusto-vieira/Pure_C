@@ -27,6 +27,8 @@ function(add_test_unit BIN_NAME BIN SOURCE)
     add_test(NAME ${BIN_NAME} COMMAND ${BIN})
 endfunction()
 
+enable_testing()
+
 #------------------------------------------------------------------------------------------------------
 #lib util
 #------------------------------------------------------------------------------------------------------
@@ -34,7 +36,6 @@ add_library(util "")
 
 target_sources(util 
   PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/src/motors.c
   ${CMAKE_CURRENT_LIST_DIR}/src/actions.c
   )
 
@@ -189,13 +190,13 @@ install(TARGETS rover_unlaunch DESTINATION bin)
 #------------------------------------------------------------------------------------------------------
 #Tests
 #------------------------------------------------------------------------------------------------------
-add_test_unit(servo test_servo test/test_servo.c)
+add_test_unit(servo test_servo tests/test_servo.c)
 target_link_libraries(test_servo PUBLIC drivers)
 
-add_test_unit(motors test_motors test/test_motors.c)
+add_test_unit(motors test_motors tests/test_motors.c)
 target_link_libraries(test_motors PUBLIC drivers)
 
-add_test_unit(ultrasonic test_ultrasonic test/test_ultrasonic.c)
+add_test_unit(ultrasonic test_ultrasonic tests/test_ultrasonic.c)
 target_link_libraries(test_ultrasonic PUBLIC drivers)
 
 #------------------------------------------------------------------------------------------------------
