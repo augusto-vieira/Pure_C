@@ -8,12 +8,12 @@ int main()
 
   SERVO_setAngle(CENTER);
 
-  for(int i = 0; i < RIGHT; i++)
+  for(int i = LEFT; i < RIGHT; i++)
   {
     SERVO_setAngle(i);
   }
 
-  for(int i = LEFT; i > 0; i-=5)
+  for(int i = RIGHT; i >= LEFT; i--)
   {
     SERVO_setAngle(i);
   }
