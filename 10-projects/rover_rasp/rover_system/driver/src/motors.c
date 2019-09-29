@@ -2,69 +2,170 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-//#include <wiringPi.h>
-//#include <softPwm.h>
+#include <wiringPi.h>
 
-static int ctx_speed = 0;
-static int motors_init();
-static int motor_setpower(int motor_id, int power);
+typedef struct motors_t{
+  int power;
+  int range;
+  int _clock;
+}motors_t;
+
+static motors_t m = {
+  .power = 0,
+  .range = 1000,
+  ._clock = 384 
+};
 
 
-int motors_init()
+static void forwardSense(void);
+static void reverseSense(void);
+static void turnLetf(void);
+static void turnRight(void);
+static void idle(void);
+
+
+int MOTORS_init()
 {
-  int ret = -1;
-
-  //ret = wiringPiSetup();
-  if(ret == -1){
-    return ret;
+  int ret = wiringPiSetupGpio();
+  if(ret < 0){
+    return -1;
   }
-  return ret;
+
+  pinMode(MOTOR1_POWER, PWM_OUTPUT);
+  pinMode(MOTOR2_POWER, PWM_OUTPUT);
+  pwmSetMode(PWM_MODE_MS);
+  pwmSetRange(m.range);
+  pwmSetClock(m._clock);
+
+  MOTORS_setPower(m.power);
+
+  pinMode(MOTOR1_IN1, OUTPUT);
+  pinMode(MOTOR1_IN2, OUTPUT);
+  pinMode(MOTOR2_IN1, OUTPUT);
+  pinMode(MOTOR2_IN2, OUTPUT);
+
+  //set forward sense
+
+
+  return EXIT_SUCCESS;
 }
 
-int motor_setpower(int motor_id, int power)
+int MOTORS_setPower(int power)
 {
-  if(power > 1023)
-    power = 1023;
-  ctx_speed = power;
-  //pwmWrite(motor_id, power);
+  if(power > m.range)
+    m.power  = m.range;
+
+  if(power < 0)
+    m.power = 0;
+
+  m.power = power;
+
+  pwmWrite(MOTOR1_POWER, power);
+  pwmWrite(MOTOR2_POWER, power);
+  usleep(5000);
+  return 0;
+}
+
+int MOTORS_setDirection(int direction)
+{
+  switch(direction)
+  {
+    case MOTOR_DIR_FORWARD:
+      forwardSense();
+      break;
+
+    case MOTOR_DIR_REVERSE:
+      reverseSense();
+      break;
+
+    case MOTOR_DIR_RIGHT:
+      turnRight();
+      break;
+
+    case MOTOR_DIR_LEFT:
+      turnLetf();
+      break;
+
+    case MOTOR_IDLE:
+      idle();
+      break;
+
+    default:
+      return -1;
+  }
+
+  return 0;
+
+} 
+
+int MOTORS_incSpeed(int speedRate)
+{
+  m.power += speedRate;
+  MOTORS_setPower(m.power);
 
   return 0;
 }
 
-
-void *motor_stop(void *args)
+int MOTORS_decSpeed(int speedRate)
 {
-  (void)args;
-  //motor_setpower(MOTOR_LEFT, 0);
-  //motor_setpower(MOTOR_RIGHT, 0);
-  printf("Motor stop.\n");
-  return NULL;
+  m.power -= speedRate;
+  MOTORS_setPower(m.power);
+  return 0;
 }
 
-void *motor_turn_left(void *args)
+static void forwardSense(void)
 {
-  (void)args;
-//  motor_setpower(MOTOR_RIGHT, ctx_speed / 3); 
-  printf("Motor Turning Left.\n");
-  return NULL;
+  //motor 1 sense
+  digitalWrite(MOTOR1_IN1, HIGH);
+  digitalWrite(MOTOR1_IN2, LOW);
+
+  //motor 2 sense
+  digitalWrite(MOTOR2_IN1, HIGH);
+  digitalWrite(MOTOR2_IN2, LOW);
 }
 
-void *motor_turn_right(void *args)
+static void reverseSense(void)
 {
-  (void)args;
- // motor_setpower(MOTOR_LEFT, ctx_speed / 3); 
-  printf("Motor Turning Right.\n");
-  return NULL;
+  //motor 1 sense
+  digitalWrite(MOTOR1_IN1, LOW);
+  digitalWrite(MOTOR1_IN2, HIGH);
+
+  //motor 2 sense
+  digitalWrite(MOTOR2_IN1, LOW);
+  digitalWrite(MOTOR2_IN2, HIGH);
 }
 
-void *motor_forward(void *args)
+static void turnLetf(void)
 {
-  int *speed = (int *)args;
-  printf("Motor Forward: %d\n");
-  if(speed == NULL)
-    return speed;
-  printf("Motor Forward: %d\n", speed);
-  //motor_setpower(MOTOR_LEFT, speed);
-  //motor_setpower(MOTOR_RIGHT, speed);
-  return NULL;
+  //motor 1 sense
+  digitalWrite(MOTOR1_IN1, LOW);
+  digitalWrite(MOTOR1_IN2, LOW);
+
+  //motor 2 sense
+  digitalWrite(MOTOR2_IN1, LOW);
+  digitalWrite(MOTOR2_IN2, HIGH);
+  
+}
+
+static void turnRight(void)
+{
+
+  //motor 1 sense
+  digitalWrite(MOTOR1_IN1, LOW);
+  digitalWrite(MOTOR1_IN2, HIGH);
+
+  //motor 2 sense
+  digitalWrite(MOTOR2_IN1, LOW);
+  digitalWrite(MOTOR2_IN2, LOW);
+}
+
+static void idle(void)
+{
+  //motor 1 sense
+  digitalWrite(MOTOR1_IN1, LOW);
+  digitalWrite(MOTOR1_IN2, LOW);
+
+  //motor 2 sense
+  digitalWrite(MOTOR2_IN1, LOW);
+  digitalWrite(MOTOR2_IN2, LOW);
 }
