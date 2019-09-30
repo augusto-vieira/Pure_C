@@ -5,7 +5,7 @@
 int HC_SR04_init(void)
 {
   int ret = -1;
-  ret = wiringPiSetup();
+  ret = wiringPiSetupGpio();
   pinMode(TRIGGER, OUTPUT);
   pinMode(ECHO, INPUT);
 
