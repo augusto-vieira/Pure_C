@@ -9,6 +9,7 @@
 
 #define ROVER_MOTOR   "ROVER_MOTOR"
 
+
 int main()
 {
 
@@ -51,6 +52,7 @@ int main()
 
     if(update == 1){
       log(ROVER_MOTOR, motores.command);
+      //call command here
       update = 0;
     } 
     else{

@@ -48,6 +48,7 @@ int main()
 
     if(update == 1){
       log(ROVER_SERVO, servo.command);
+      //call command here
       update = 0;
     } 
     else{
