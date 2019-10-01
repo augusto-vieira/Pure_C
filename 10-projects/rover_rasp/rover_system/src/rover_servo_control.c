@@ -6,6 +6,7 @@
 #include <sema.h>
 #include <rover_types.h>
 #include <log.h>
+#include <servo_action.h>
 
 #define ROVER_SERVO   "ROVER_SERVO"
 
@@ -49,6 +50,7 @@ int main()
     if(update == 1){
       log(ROVER_SERVO, servo.command);
       //call command here
+      servo_action_select(servo.command, strlen(servo.command));
       update = 0;
     } 
     else{
