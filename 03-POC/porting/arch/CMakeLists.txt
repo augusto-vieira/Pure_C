@@ -1,23 +1,23 @@
 add_library(led "")
 
 #pc 
-if(PC)
+if(${ARCH} STREQUAL "PC")
   message("pc compiling...")
   target_sources(led 
     PUBLIC 
     ${CMAKE_CURRENT_LIST_DIR}/pc/src/led.c
     )
-endif(PC)
+endif()
 
 #raspberry
-if(RASPBERRY)
+if(${ARCH} STREQUAL "RASPBERRY")
   target_link_libraries(led PUBLIC wiringPi)
   target_sources(led 
     PUBLIC 
     ${CMAKE_CURRENT_LIST_DIR}/raspberry/src/led.c
     )
   message("raspberry compiling...")
-endif(RASPBERRY)
+endif()
 
 target_include_directories(led 
   PUBLIC 
